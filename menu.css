@@ -1,0 +1,16 @@
+.menu-options {
+ text-decoration: underline;
+ margin: 10px;
+ margin-left: 0;
+}
+
+.menu-topics {
+    border: 1px #f2f3f4 solid;
+    padding: 10px;
+    margin: 10px 10px 20px 0;
+    text-align: center;
+}
+
+ul {
+    margin-top: 10px;
+}

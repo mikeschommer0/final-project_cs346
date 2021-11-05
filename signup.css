@@ -1,0 +1,9 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form p {
+    margin: 0;
+    font-size: 12px;
+}

@@ -1,0 +1,31 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#login-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+legend {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type=submit], input[type=reset] {
+    margin: 10px;
+}
+
+input[type=text] {
+    width: 200px;
+}

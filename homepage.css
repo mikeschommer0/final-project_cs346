@@ -1,0 +1,22 @@
+
+/*---------------------------Menu Button-----------------------*/
+
+button {
+  color: #f2f3f4;
+  border: 1px black solid;
+  background-color: #616669;
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 40px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  text-shadow: 3px 3px 4px #000000;
+  color: #f2f3f4;
+  background-color: gray;
+}
+
