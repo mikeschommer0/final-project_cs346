@@ -12,6 +12,10 @@
     margin: 20px;
 }
 
+main h1 {
+    padding: 0; /*Removes padding from theme*/
+}
+
 #contact-info h1 {
     text-decoration: underline;
     text-transform: uppercase;
