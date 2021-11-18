@@ -38,11 +38,11 @@
                 <ul>
                     <li>
                         <label for="username-login">Username:</label>
-                        <input type="text" name="username-login" id="username-login">
+                        <input type="text" name="username-login" id="username-login" required>
                     </li>
                     <li>
                         <label for="password-login">Password:</label>
-                        <input type="password" name="password-login" id="password-login">
+                        <input type="password" name="password-login" id="password-login" required>
                     </li>
                 </ul>
                 <div id="login-buttons">

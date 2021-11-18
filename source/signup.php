@@ -39,23 +39,27 @@
                 <ul>
                     <li>
                         <label for="first-name-signup">First Name:</label>
-                        <input type="text" name="first-name-signup" id="first-name-signup">
+                        <input type="text" name="first-name-signup" id="first-name-signup" required>
                     </li>
                     <li>
                         <label for="last-name-signip">Last Name:</label>
-                        <input type="text" name="last-name-signip" id="last-name-signip">
+                        <input type="text" name="last-name-signip" id="last-name-signip" required>
                     </li>
                     <li>
                         <label for="username-signup">Username:</label>
-                        <input type="text" name="username-signup" id="username-signup">
+                        <input type="text" name="username-signup" id="username-signup" required>
                     </li>
                     <li>
                         <label for="email-signup">Email:</label>
-                        <input type="email" name="email-signup" id="email-signup">
+                        <input type="email" name="email-signup" id="email-signup" required>
                     </li>
                     <li>
                         <label for="password-signup">Password:</label>
-                        <input type="password" name="password-signup" id="password-signup">
+                        <input type="password" name="password-signup" id="password-signup" required>
+                    </li>
+                    <li>
+                        <label for="password-signup2">Re-enter Password:</label>
+                        <input type="password" name="password-signup2" id="password-signup2" required>
                     </li>
                     <li>
                         <label for="dob-signup">Birthday:</label>
