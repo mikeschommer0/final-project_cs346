@@ -35,7 +35,7 @@
     <main>
         <fieldset>
             <legend>User Info</legend>
-            <form action="">
+            <form action="http://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/php/form-testing.php" method="POST">
                 <ul>
                     <li>
                         <label for="first-name-signup">First Name:</label>

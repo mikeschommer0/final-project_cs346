@@ -27,11 +27,11 @@
                 <li><a href=""><span class="link-icon"></span>Apply</a></li>
                 <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
                 <li><a href="./about.html"><span class="link-icon"></span>About</a></li> 
-                <li><a href="./login.html"><span class="link-icon"></span>Login</a></li> 
+                <li><a href="./login.php"><span class="link-icon"></span>Login</a></li> 
         </ul>
     </nav>
     <main>
-        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+        <form action="http://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/php/form-testing.php" method="POST">
             <!-------------------Contact Info------------------------------>
             <fieldset class="app-info">
                 <legend class="app-headers">Contact information</legend>

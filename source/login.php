@@ -25,14 +25,14 @@
             <ul class="nav-bar">
                 <li><a href="./homepage.html"><span class="link-icon"></span>Home</a></li>
                 <li><a href="./order.html"><span class="link-icon"></span>Order Online</a></li>
-                <li><a href="./apply.html"><span class="link-icon"></span>Apply</a></li>
+                <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
                 <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
                 <li><a href="./about.html"><span class="link-icon"></span>About</a></li>
                 <li><a href=""><span class="link-icon"></span>Login</a></li> 
             </ul>
         </nav>
         <main> 
-            <form action="" method="post">
+            <form action="http://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/php/form-testing.php" method="post">
                 <fieldset>
                 <legend>Sign in</legend>
                 <ul>
@@ -51,7 +51,7 @@
                 </div>
             </fieldset>
             </form>
-            <a href="./signup.html"><button type="button">Sign-up</button></a></li>
+            <a href="./signup.php"><button type="button">Sign-up</button></a></li>
         </main>
         <footer>
             <p>
