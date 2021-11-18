@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <title>Signup</title>
+    <script src="../javascript/password-validation.js" defer></script>
 </head>
 <body>
     <div id="wrapper">
@@ -55,11 +56,18 @@
                     </li>
                     <li>
                         <label for="password-signup">Password:</label>
-                        <input type="password" name="password-signup" id="password-signup" required>
-                    </li>
+                        <input type="password" name="password-signup" id="password-signup" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
+                    </li> 
+                    <div id="password-message">
+                        <h1>Password requirements:</h1>
+                        <p id="password-lcletter" class="invalid">At least one lowercase letter</p>
+                        <p id="password-ucletter" class="invalid">At least one capital letter</p>
+                        <p id="password-number" class="invalid">At least one number</p>
+                        <p id="password-length" class="invalid">A minimum of 10 characters</p>
+                    </div>
                     <li>
                         <label for="password-signup2">Re-enter Password:</label>
-                        <input type="password" name="password-signup2" id="password-signup2" required>
+                        <input type="password" name="password-signup2" id="password-signup2" minlength="8" required>
                     </li>
                     <li>
                         <label for="dob-signup">Birthday:</label>

@@ -7,3 +7,25 @@ form p {
     margin: 0;
     font-size: 12px;
 }
+
+main h1 {
+    font-size: 14px;
+    padding: 0;
+    margin-top: 0;
+    text-decoration: underline;
+}
+
+#password-message {
+    display: none;
+    position: relative;
+    padding: 5px;
+    background-color: gray;
+}
+
+.valid {
+    color: limegreen;
+}
+
+.invalid {
+    color: #f2f3f4;;
+}
