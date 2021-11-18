@@ -23,7 +23,7 @@
                 </p>
             <?php } else { ?>
                 <p>
-                    <?php echo "{$name}: " . htmlspecialchars($value); ?>
+                    <?php echo "{$name}: " . trim(htmlspecialchars($value)); ?>
                 </p>
             <?php }
         }
