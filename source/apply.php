@@ -31,44 +31,44 @@
         </ul>
     </nav>
     <main>
-        <form action="" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
             <!-------------------Contact Info------------------------------>
             <fieldset class="app-info">
                 <legend class="app-headers">Contact information</legend>
                 <ul>
                     <li>
                         <label for="first-name-app">First name:</label>
-                        <input type="text" id="first-name-app" name="first-name-app">
+                        <input type="text" id="first-name-app" name="first-name-app" required>
                     </li>
                     <li>
                         <label for="last-name-app">Last name:</label>
-                        <input type="text" id="last-name-app" name="last-name=app">
+                        <input type="text" id="last-name-app" name="last-name=app" required>
                     </li>
                     <li>
                         <label for="dob-app">Date Of Birth:</label>
-                        <input type="date" id="dob-app" name="dob-app">
+                        <input type="date" id="dob-app" name="dob-app" required>
                     </li>
                     <li>
                         <label for="address">Address:</label>
-                        <input type="text" id="address-app" name="address-app">
+                        <input type="text" id="address-app" name="address-app" required>
                     </li>
                 </ul>
                 <ul>
                     <li>
                         <label for="city">City:</label>
-                        <input type="text" id="city" name="city">
+                        <input type="text" id="city" name="city" required>
                     </li>
                     <li>
                         <label for="state">State:</label>
-                        <input type="text" id="zip" name="zip">
+                        <input type="text" id="zip" name="zip" required>
                     </li>
                     <li>
                         <label for="phone-number-app">Phone Number:</label>
-                        <input type="text" id="phone-number-app" name="phone-number-app">
+                        <input type="text" id="phone-number-app" name="phone-number-app" required>
                     </li>
                     <li>
                         <label for="email-app">Email:</label>
-                        <input type="email" id="email-app" name="email-app">
+                        <input type="email" id="email-app" name="email-app" required>
                     </li>
                 </ul>
             </fieldset>
@@ -76,7 +76,7 @@
             <fieldset>
                 <legend class="app-headers">Availibility</legend>
                 <label class="radio-labels" for="full-time">Full Time</label>
-                <input type="radio" id="full-time" name="type-of-employment">
+                <input type="radio" id="full-time" name="type-of-employment" required>
                 <label class="radio-labels" for="part-time">Part Time</label>
                 <input type="radio" id="part-time" name="type-of-employment">
             </fieldset>
@@ -84,7 +84,7 @@
             <fieldset>
                 <legend class="app-headers">Do you have any pizza/restaurant experience?</legend>
                 <label class="radio-labels" for="yes-exp">Yes</label>
-                <input type="radio" id="yes-exp" name="experience">
+                <input type="radio" id="yes-exp" name="experience" required>
                 <label class="radio-labels" for="no-exp">No</label>
                 <input type="radio" id="no-exp" name="experience">
             </fieldset>
@@ -92,7 +92,7 @@
             <fieldset>
                 <legend class="app-headers">Are you able to work from 10PM to 3AM?</legend>
                 <label class="radio-labels" for="yes-weekend">Yes</label>
-                <input type="radio" id="yes-weekend" name="weekend">
+                <input type="radio" id="yes-weekend" name="weekend" required>
                 <label class="radio-labels" for="no-weekend">No</label>
                 <input type="radio" id="no-weekend" name="weeked">
             </fieldset>
@@ -100,22 +100,22 @@
             <fieldset>
                 <legend class="app-headers">Hours and rate</legend>
                 <label for="desired-hours">Hours availiable:</label>
-                <input type="text" id="desired-hours" name="desired-hours">
+                <input type="text" id="desired-hours" name="desired-hours" required>
                 <label for="desired-rate">Desired rate:</label>
-                <input type="text" id="desired-rate" name="desired-rate">
+                <input type="text" id="desired-rate" name="desired-rate" required>
             </fieldset>
             <!--------------------Legal Questions--------------------------------------->
             <fieldset>
                 <legend class="app-headers">Are you legally eligible for employment in the United States?</legend>
                 <label class="radio-labels" for="yes-legally">Yes</label>
-                <input type="radio" id="yes-legally" name="legality">
+                <input type="radio" id="yes-legally" name="legality" required>
                 <label class="radio-labels" for="no-legally">No</label>
-                <input type="radio" id="no-legally" name="legality">
+                <input type="radio" id="no-legally" name="legality" required>
             </fieldset>
             <fieldset>
                 <legend class="app-headers">Have you been convicted of a felony?</legend>
                 <label class="radio-labels" for="yes-felony">Yes</label>
-                <input type="radio" id="yes-felony" name="felony">
+                <input type="radio" id="yes-felony" name="felony" required>
                 <label class="radio-labels" for="no-felony">No</label>
                 <input type="radio" id="no-felony" name="felony">
                 <label class="radio-labels" for="ifyes-felony">If yes, please explain:</label>
