@@ -1,8 +1,8 @@
-var password = document.getElementById("password-signup");
-var letter = document.getElementById("password-lcletter");
-var capital = document.getElementById("password-ucletter");
-var number = document.getElementById("password-number");
-var length = document.getElementById("password-length");
+let password = document.getElementById("password-signup");
+let letter = document.getElementById("password-lcletter");
+let capital = document.getElementById("password-ucletter");
+let number = document.getElementById("password-number");
+let length = document.getElementById("password-length");
 
 password.onfocus = function() {
   document.getElementById("password-message").style.display = "block";
@@ -14,7 +14,7 @@ password.onblur = function() {
 
 password.onkeyup = function() {
   //validate lowercase letters
-  var validLCLetters = /[a-z]/g;
+  let validLCLetters = /[a-z]/g;
   if(password.value.match(validLCLetters)) {
     letter.classList.remove("invalid");
     letter.classList.add("valid");
@@ -24,7 +24,7 @@ password.onkeyup = function() {
 }
 
   //validate capital letters
-  var validUCLetters = /[A-Z]/g;
+  let validUCLetters = /[A-Z]/g;
   if(password.value.match(validUCLetters)) {
     capital.classList.remove("invalid");
     capital.classList.add("valid");
@@ -34,7 +34,7 @@ password.onkeyup = function() {
   }
 
   //validate numbers
-  var validNumbers = /[0-9]/g;
+  let validNumbers = /[0-9]/g;
   if(password.value.match(validNumbers)) {
     number.classList.remove("invalid");
     number.classList.add("valid");

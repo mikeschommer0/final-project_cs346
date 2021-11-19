@@ -8,6 +8,10 @@ form p {
     font-size: 12px;
 }
 
+form label {
+    text-align: left;
+}
+
 main h1 {
     font-size: 14px;
     padding: 0;

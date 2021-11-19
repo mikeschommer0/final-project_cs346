@@ -66,6 +66,10 @@
   nav li {
    flex: 1;
   }
+
+  #signout {
+    display: none;
+  }
   
   ul li {
   list-style-type: none;

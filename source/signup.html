@@ -30,7 +30,8 @@
                 <li><a href="./apply.html"><span class="link-icon"></span>Apply</a></li>
                 <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
                 <li><a href="./about.html"><span class="link-icon"></span>About</a></li>
-                <li><a href="./login.html"><span class="link-icon"></span>Login</a></li> 
+                <li class="login"><a href="./login.html"><span class="link-icon"></span>Login</a></li>
+                <li class="signout"><a href=""><span class="link-icon"></span>Signout</a></li>  
             </ul>
         </nav>
     <main>
@@ -40,23 +41,27 @@
                 <ul>
                     <li>
                         <label for="first-name-signup">First Name:</label>
-                        <input type="text" name="first-name-signup" id="first-name-signup" required>
+                        <input type="text" name="first-name-signup" id="first-name-signup" value="mike" required>
                     </li>
                     <li>
                         <label for="last-name-signip">Last Name:</label>
-                        <input type="text" name="last-name-signip" id="last-name-signip" required>
+                        <input type="text" name="last-name-signip" id="last-name-signip" value="schommer" required>
                     </li>
                     <li>
                         <label for="username-signup">Username:</label>
-                        <input type="text" name="username-signup" id="username-signup" required>
+                        <input type="text" name="username-signup" id="username-signup" value="schomm42" required>
                     </li>
                     <li>
                         <label for="email-signup">Email:</label>
-                        <input type="email" name="email-signup" id="email-signup" required>
+                        <input type="email" name="email-signup" id="email-signup" value="example@gmail.com" required>
+                    </li>
+                    <li>
+                        <label for="phone-signup">Phone number:</label>
+                        <input type="phone-signup" name="phone-signup" id="phone-signup" value="9204223356" required>
                     </li>
                     <li>
                         <label for="password-signup">Password:</label>
-                        <input type="password" name="password-signup" id="password-signup" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
+                        <input type="password" name="password-signup" id="password-signup" value="12345678aA" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
                     </li> 
                     <div id="password-message">
                         <h1>Password requirements:</h1>
@@ -67,7 +72,7 @@
                     </div>
                     <li>
                         <label for="password-signup2">Re-enter Password:</label>
-                        <input type="password" name="password-signup2" id="password-signup2" minlength="8" required>
+                        <input type="password" name="password-signup2" id="password-signup2" minlength="10" required>
                     </li>
                     <li>
                         <label for="dob-signup">Birthday:</label>
@@ -75,7 +80,7 @@
                     </li>
                     <p>Earn a free slice on your birthday! *Not required*</p>
                 </ul>
-                <input class="form-buttons" type="submit" value="Sign-up"/>
+                <input id="sign-in-button" class="form-buttons" type="submit" value="Sign-up"/>
             </form>
         </fieldset>
     </main>
