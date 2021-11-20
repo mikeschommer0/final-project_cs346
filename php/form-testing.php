@@ -9,6 +9,7 @@
 </head>
 <body>
     <?php
+    require_once('./initialize.php');
     if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
         <h1>POST request received</h1>
         <pre>
@@ -27,6 +28,10 @@
                 </p>
             <?php }
         }
+        echo "made it here";
+        insert_user($_POST['first-name-signup'],$_POST['last-name-signup'],$_POST['username-signup'], $_POST['email-signup'], $_POST['phone-signup'], $_POST['password-signup'], $_POST['dob-signup']);
+        echo "made it here";
+        db_disconnect();
     } ?>
 
 </body>
