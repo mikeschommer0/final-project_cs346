@@ -28,9 +28,8 @@
                 </p>
             <?php }
         }
-        echo "made it here";
         insert_user($_POST['first-name-signup'],$_POST['last-name-signup'],$_POST['username-signup'], $_POST['email-signup'], $_POST['phone-signup'], $_POST['password-signup'], $_POST['dob-signup']);
-        echo "made it here";
+        echo "user inserted";
         db_disconnect();
     } ?>
 
