@@ -10,6 +10,7 @@ function insert_user($first_name, $last_name, $username, $email, $phone, $passwo
     return $db->lastInsertId();
   } catch (PDOException $e) {
       db_disconnect();
+      echo $e;
       exit("Aborting: There was a database error when inserting a user.");
   }
 }
