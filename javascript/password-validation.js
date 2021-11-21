@@ -1,21 +1,34 @@
+// if( document.readyState !== 'loading' ) {
+//   console.log( 'document is already ready, just execute code here' );
+//   myInitCode();
+// } else {
+//   document.addEventListener('DOMContentLoaded', function () {
+//       console.log( 'document was not ready, place code here' );
+//       myInitCode();
+//   });
+// }
+
 let password = document.getElementById("password-signup");
+password.addEventListener("focus", showBox);
+password.addEventListener("blur", hideBox);
+password.addEventListener("keyup", validatePassword);
+
 let letter = document.getElementById("password-lcletter");
 let capital = document.getElementById("password-ucletter");
 let number = document.getElementById("password-number");
 let length = document.getElementById("password-length");
 
-password.onfocus = function() {
-  document.getElementById("password-message").style.display = "block";
+function showBox() {
+  document.getElementById('password-message').style.display = "block";
 }
 
-password.onblur = function() {
-  document.getElementById("password-message").style.display = "none";
+function hideBox() {
+  document.getElementById('password-message').style.display = "none";
 }
 
-password.onkeyup = function() {
-  //validate lowercase letters
+function validatePassword() {
   let validLCLetters = /[a-z]/g;
-  if(password.value.match(validLCLetters)) {
+  if(this.value.match(validLCLetters)) {
     letter.classList.remove("invalid");
     letter.classList.add("valid");
   } else {
@@ -25,7 +38,7 @@ password.onkeyup = function() {
 
   //validate capital letters
   let validUCLetters = /[A-Z]/g;
-  if(password.value.match(validUCLetters)) {
+  if(this.value.match(validUCLetters)) {
     capital.classList.remove("invalid");
     capital.classList.add("valid");
   } else {
@@ -35,7 +48,7 @@ password.onkeyup = function() {
 
   //validate numbers
   let validNumbers = /[0-9]/g;
-  if(password.value.match(validNumbers)) {
+  if(this.value.match(validNumbers)) {
     number.classList.remove("invalid");
     number.classList.add("valid");
   } else {
@@ -44,7 +57,7 @@ password.onkeyup = function() {
   }
 
   //validate length
-  if(password.value.length >= 10) {
+  if(this.value.length >= 10) {
     length.classList.remove("invalid");
     length.classList.add("valid");
   } else {
