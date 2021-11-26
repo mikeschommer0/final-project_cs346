@@ -19,18 +19,18 @@
         <?php
         function validateName() {
             $validName = true;
-            if (empty($_POST["first-name-signup"])) {
+            if (empty($_POST["first-name-app"])) {
                 $firstErr = "You Forgot to Enter Your First Name!";
             } else {
-                if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first-name-signup"])) {
+                if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first-name-app"])) {
                     echo "Only letters and white space allowed"; 
                     $validName = false;
                 }
             }
-            if (empty($_POST["last-name-signup"])) {
+            if (empty($_POST["last-name-app"])) {
                 echo "You Forgot to Enter Your Last Name!";
             } else {
-                if (!preg_match("/^[a-zA-Z ]*$/", $_POST["last-name-signup"])) {
+                if (!preg_match("/^[a-zA-Z ]*$/", $_POST["last-name-app"])) {
                     echo "Only letters and white space allowed"; 
                     $validName = false;
                 }
@@ -38,49 +38,19 @@
             return $validName;
         }
 
-        function validateUsernamePassword() {
-            $validField;
-            if (empty($_POST["username-signup"])) {
-                echo "You Forgot to Enter Your Username!";
-               $validField = false;
-            }
-
-            if(!empty($_POST["password-signup"]) && isset($_POST["password-signup"])){
-                if (strlen($_POST["password-signup"]) < '10') {
-                    echo "Your password-signup Must Contain At Least 10 Digits!";
-                    $validField = false;
-                } elseif(!preg_match("#[0-9]+#", $_POST["password-signup"])) {
-                    echo "Your password-signup Must Contain At Least 1 Number!";
-                    $validField = false;
-                } elseif(!preg_match("#[A-Z]+#", $_POST["password-signup"])) {
-                   echo "Your password-signup Must Contain At Least 1 Capital Letter!";
-                   $validField = false;
-                } elseif(!preg_match("#[a-z]+#", $_POST["password-signup"])) {
-                    echo "Your password-signup Must Contain At Least 1 Lowercase Letter!";
-                    $validField = false;
-                } elseif($_POST["password-signup"] != $_POST["password-signup2"]) {
-                    echo "Password does not match!";
-                    $validField = false;
-                } else {
-                    $validField = true;
-                }
-            }
-            return $validField;
-        }
-
         function validateEmailPhone() {
         $validField = true;
 
-        if (empty($_POST["email-signup"])) {
+        if (empty($_POST["email-app"])) {
            echo "You Forgot to Enter Your Email!";
         } else {
-            if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $_POST["email-signup"])) {
+            if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $_POST["email-app"])) {
                 echo "You Entered An Invalid Email Format";
                 $validField = false; 
             }
         }
 
-        $phoneNum = preg_replace("/[^0-9]/", '', $_POST["phone-signup"]);
+        $phoneNum = preg_replace("/[^0-9]/", '', $_POST["phone-number-app"]);
         if (strlen($phoneNum) == 11) {
             $phoneNum = preg_replace("/^1/", '',$phoneNum);
             if (strlen($phoneNum) != 10) {
@@ -107,19 +77,27 @@
         }
     }
 
-    function dbInsertUser() {
-        insert_user($_POST['first-name-signup'],$_POST['last-name-signup'],$_POST['username-signup'], $_POST['email-signup'], $_POST['phone-signup'], $_POST['password-signup'], $_POST['dob-signup']);
-        echo "user inserted";
+    function dbInsertApp() {
+        //insert_app_details($_POST['first-name-app'],$_POST['last-name-app'],$_POST['email-app'], $_POST['phone-number-app'], $_POST['dob-app'], $_POST['address-app'], $_POST['city'], $_POST['state']);
+
+        $availiablity = isset($_POST['full-time']) ? 1 : 0;
+        $exp = isset($_POST['yes-exp']) ? 1 : 0;
+        $weekend = isset($_POST['yes-weekend']) ? 1 : 0;
+        $legality = isset($_POST['yes-legally']) ? 1 : 0;
+        $felony = isset($_POST['yes-felony']) ? 1 : 0;
+
+        insert_app_questions($availiablity, $exp, $weekend, $_POST['desired-rate'], $_POST['desired-hours'], $legality, $felony, $_POST['ifyes-felony']);
+        echo "app inserted";
         db_disconnect();
     }
 
     $isValid = validateName();
-    $isValid = validateUsernamePassword();
     $isValid = validateEmailPhone();
+    
 
     if($isValid) {
         sanitize();
-        dbInsertUser();
+        dbInsertApp();
     } else {
         echo "Error! Something went wrong. Failed to insert user.";
     }
