@@ -74,7 +74,7 @@
         if (empty($_POST["email-signup"])) {
            echo "You Forgot to Enter Your Email!";
         } else {
-            if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $_POST["email-signup"])) {
+            if (!filter_var($_POST["email-signup"], FILTER_VALIDATE_EMAIL)) {
                 echo "You Entered An Invalid Email Format";
                 $validField = false; 
             }

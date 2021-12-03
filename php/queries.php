@@ -2,17 +2,18 @@
 ////////////////////////////////USERS//////////////////////////////////////////////////////////
 function insert_user($first_name, $last_name, $username, $email, $phone, $password, $dob) {
   global $db;
-
+  $success = FALSE;
   try {
     $query = "INSERT INTO users(first_name, last_name, username, email, phone, password, dob) VALUES (?,?,?,?,?,?,?)";
     $stmt = $db->prepare($query);
-    $stmt->execute([$first_name, $last_name, $username, $email, $phone, $password, $dob]);
-    return $db->lastInsertId();
+    $stmt->execute([$first_name, $last_name, $username, $email, $phone, crypt($password), $dob]);
+    $success = TRUE;
   } catch (PDOException $e) {
       db_disconnect();
       echo $e;
       exit("Aborting: There was a database error when inserting a user.");
   }
+  return $success;
 }
 ////////////////////////////////COMMENTS//////////////////////////////////////////////////////////
 function insert_comment($name, $phone, $email, $comment) {
