@@ -35,50 +35,8 @@
         </nav>
         <main>
             <fieldset>
-                <legend>Your Account</legend>
-                <form action="../php/account.php" method="POST">
-                    <ul>
-                        <li>
-                            <label for="first-name-account">First Name:</label>
-                            <input type="text" name="first-name-account" id="first-name-account" value="" required>
-                        </li>
-                        <li>
-                            <label for="last-name-account">Last Name:</label>
-                            <input type="text" name="last-name-account" id="last-name-account" value="" required>
-                        </li>
-                        <li>
-                            <label for="username-account">Username:</label>
-                            <input type="text" name="username-account" id="username-account" value="" required>
-                        </li>
-                        <li>
-                            <label for="email-account">Email:</label>
-                            <input type="email" name="email-account" id="email-account" value="" required>
-                        </li>
-                        <li>
-                            <label for="phone-account">Phone number:</label>
-                            <input type="phone-account" name="phone-account" id="phone-account" value="" required>
-                        </li>
-                        <li>
-                            <label for="password-account">Change Password:</label>
-                            <input type="password" name="password-account" id="password-account" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
-                        </li> 
-                        <div id="password-message">
-                            <h1>Password requirements:</h1>
-                            <p id="password-lcletter" class="invalid">At least one lowercase letter</p>
-                            <p id="password-ucletter" class="invalid">At least one capital letter</p>
-                            <p id="password-number" class="invalid">At least one number</p>
-                            <p id="password-length" class="invalid">A minimum of 10 characters</p>
-                        </div>
-                        <li>
-                            <label for="password-account2">Re-enter Password:</label>
-                            <input type="password" name="password-account2" id="password-account2" value="12345678Bb" minlength="10" required>
-                        </li>
-                        <li>
-                            <label for="dob-account">Birthday:</label>
-                            <input type="date" name="dob-account" id="dob-account">
-                        </li>
-                    </ul>
-                    <input id="sign-in-button" class="form-buttons" type="submit" value="Change Info"/>
+                <legend>Options</legend>
+                <a href="./changeinfo.php"><button type="button">Change Information</button></a>
                     <form id="logout" action="logout.php" method="POST">
                         <input type="submit"  class="form-buttons" value="Log out" >
                         <input type="hidden" name="logout" value="true" >
