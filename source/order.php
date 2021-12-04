@@ -20,7 +20,7 @@ include("../php/sessions.php");
 <body>
     <div id="wrapper">
         <header>
-            <img id="titans-logo" src="https://uwosh.edu/foundation/wp-content/uploads/sites/193/2020/10/UWO-Athletics-Logo-Horizontal-600px.png" alt="UW Oshkosh Titans logo">
+            <img id="titans-logo" src="../images/titans-icon.png" alt="UW Oshkosh Titans logo">
             <h1 id="homepage-title"> Polito's Pizza - Oshkosh</h1>
             <img src="../images/politos-icon.png" alt="Polito's Mascot">
         </header>
