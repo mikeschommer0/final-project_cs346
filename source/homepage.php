@@ -30,7 +30,11 @@ include("../php/sessions.php");
             <li><a href="./apply.html"><span class="link-icon"></span>Apply</a></li>
             <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
             <li><a href="./about.html"><span class="link-icon"></span>About</a></li>
-            <li><a href="./login.php"><span class="link-icon"></span>Login</a></li> 
+            <?php if(isset($_SESSION["name"])) { ?>
+                <li><a href="./account.php"><span class="link-icon"></span>Account</a></li>
+            <?php } else { ?>
+                <li><a href="./login.php"><span class="link-icon"></span>Login</a></li> 
+            <?php } ?>
         </ul>
     </nav>
     <main> 
@@ -94,7 +98,6 @@ include("../php/sessions.php");
               </ul>
           </div>
     </main>
-
     <footer>
         <p>
             Disclaimer: This site is under development by Mike Schommer, a UW-Oshkosh 
