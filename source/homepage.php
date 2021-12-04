@@ -26,10 +26,10 @@ include("../php/sessions.php");
     <nav>
         <ul class="nav-bar">
             <li><a href=""><span class="link-icon"></span>Home</a></li>
-            <li><a href="./order.html"><span class="link-icon"></span>Order Online</a></li>
-            <li><a href="./apply.html"><span class="link-icon"></span>Apply</a></li>
-            <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
-            <li><a href="./about.html"><span class="link-icon"></span>About</a></li>
+            <li><a href="./order.php"><span class="link-icon"></span>Order Online</a></li>
+            <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
+            <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
+            <li><a href="./about.php"><span class="link-icon"></span>About</a></li>
             <?php if(isset($_SESSION["name"])) { ?>
                 <li><a href="./account.php"><span class="link-icon"></span>Account</a></li>
             <?php } else { ?>
@@ -41,7 +41,7 @@ include("../php/sessions.php");
         <div id ="homescreen-img"></div>
         <div id = "main-subtitles">
             <h1>Our Specials</h1>
-            <a href="./menu.html"><button type="button">View Our Menu</button></a></li>
+            <a href="./menu.php"><button type="button">View Our Menu</button></a></li>
         </div>
         <div class="main-text">
             <ul>

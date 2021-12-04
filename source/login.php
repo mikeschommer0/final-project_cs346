@@ -47,10 +47,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <nav>
             <ul class="nav-bar">
                 <li><a href="./homepage.php"><span class="link-icon"></span>Home</a></li>
-                <li><a href="./order.html"><span class="link-icon"></span>Order Online</a></li>
-                <li><a href="./apply.html"><span class="link-icon"></span>Apply</a></li>
-                <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
-                <li><a href="./about.html"><span class="link-icon"></span>About</a></li>
+                <li><a href="./order.php"><span class="link-icon"></span>Order Online</a></li>
+                <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
+                <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
+                <li><a href="./about.php"><span class="link-icon"></span>About</a></li>
                 <li><a href=""><span class="link-icon"></span>Login</a></li> 
             </ul>
         </nav>
@@ -73,11 +73,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ul>
                 <div id="login-buttons">
                     <input class="form-buttons" type="submit" value="Sign-in"/>
-                    <a href="./forgotpassword.html"><button type="button">Forgot password?</button></a></li>
+                    <a href="./forgotpassword.php"><button type="button">Forgot password?</button></a></li>
                 </div>
             </fieldset>
             </form>
-            <a href="./signup.html"><button type="button">Sign-up</button></a></li>
+            <a href="./signup.php"><button type="button">Sign-up</button></a></li>
         </main>
         <footer>
             <p>

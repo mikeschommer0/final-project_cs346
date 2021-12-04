@@ -1,3 +1,6 @@
+<?php
+include("../php/sessions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +26,11 @@
         </header>
         <nav>
             <ul class="nav-bar">
-                <li><a href="./homepage.html"><span class="link-icon"></span>Home</a></li>
-                <li><a href="./order.html"><span class="link-icon"></span>Order Online</a></li>
-                <li><a href="./apply.html"><span class="link-icon"></span>Apply</a></li>
-                <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
-                <li><a href="./about.html"><span class="link-icon"></span>About</a></li>
+                <li><a href="./homepage.php"><span class="link-icon"></span>Home</a></li>
+                <li><a href="./order.php"><span class="link-icon"></span>Order Online</a></li>
+                <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
+                <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
+                <li><a href="./about.php"><span class="link-icon"></span>About</a></li>
                 <li><a href=""><span class="link-icon"></span>Login</a></li> 
             </ul>
         </nav>
@@ -46,7 +49,7 @@
                 </div>
             </fieldset>
             </form>
-            <a href="./login.html"><button type="button">Login</button></a></li>
+            <a href="./login.php"><button type="button">Login</button></a></li>
         </main>
         <footer>
             <p>
