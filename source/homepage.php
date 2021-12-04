@@ -1,3 +1,7 @@
+<?php
+include("../php/sessions.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +30,7 @@
             <li><a href="./apply.html"><span class="link-icon"></span>Apply</a></li>
             <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
             <li><a href="./about.html"><span class="link-icon"></span>About</a></li>
-            <li><a href="./login.html"><span class="link-icon"></span>Login</a></li> 
+            <li><a href="./login.php"><span class="link-icon"></span>Login</a></li> 
         </ul>
     </nav>
     <main> 

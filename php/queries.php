@@ -15,6 +15,24 @@ function insert_user($first_name, $last_name, $username, $email, $phone, $passwo
   }
   return $success;
 }
+
+function is_password_correct($username, $password) {
+  global $db;
+  $password_correct = FALSE;
+
+  $query = "SELECT password FROM users WHERE username = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$username]);
+  $correct_password = 0;
+
+  if ($statement) {
+    foreach ($statement as $row) {
+      $correct_password = $row["password"]; 
+      $password_correct = $correct_password === crypt($password, $correct_password);
+    }
+  }
+  return $password_correct;
+}
 ////////////////////////////////COMMENTS//////////////////////////////////////////////////////////
 function insert_comment($name, $phone, $email, $comment) {
   global $db;

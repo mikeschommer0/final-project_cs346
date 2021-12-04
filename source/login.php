@@ -1,3 +1,26 @@
+<?php
+include("../php/database.php");
+include("../php/queries.php");
+include("../php/initialize.php");
+include("../php/sessions.php");
+
+$loginFailed = FALSE;
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+  $username = $_POST["username-login"];
+  $password = $_POST["password-login"];
+  
+  if (is_password_correct($username, $password)) {
+    //$_SESSION["name"] = $name;     # start session, remember user info
+    redirect("./homepage.php", "Signed In!");
+  } else {
+    $loginFailed = TRUE;
+  }
+} else {
+  $username = "";
+  $password = "";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +46,7 @@
         </header>
         <nav>
             <ul class="nav-bar">
-                <li><a href="./homepage.html"><span class="link-icon"></span>Home</a></li>
+                <li><a href="./homepage.php"><span class="link-icon"></span>Home</a></li>
                 <li><a href="./order.html"><span class="link-icon"></span>Order Online</a></li>
                 <li><a href="./apply.html"><span class="link-icon"></span>Apply</a></li>
                 <li><a href="./contact.html"><span class="link-icon"></span>Contact</a></li>
@@ -32,18 +55,21 @@
             </ul>
         </nav>
         <main> 
-            <form action="http://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/php/form-testing.php" method="post">
+            <form action="login.php" method="POST">
                 <fieldset>
                 <legend>Sign in</legend>
                 <ul>
                     <li>
                         <label for="username-login">Username:</label>
-                        <input type="text" name="username-login" id="username-login" required>
+                        <input type="text" name="username-login" id="username-login" value="<?= $username ?>" required>
                     </li>
                     <li>
                         <label for="password-login">Password:</label>
-                        <input type="password" name="password-login" id="password-login" required>
+                        <input type="password" name="password-login" id="password-login" value="<?= $password ?>" required>
                     </li>
+                    <?php if($loginFailed) {?>
+                     <li>Incorrect username or password</li>   
+                    <?php }?>
                 </ul>
                 <div id="login-buttons">
                     <input class="form-buttons" type="submit" value="Sign-in"/>
