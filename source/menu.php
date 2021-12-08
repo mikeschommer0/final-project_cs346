@@ -24,7 +24,7 @@ include("../php/sessions.php");
         </header>
         <nav>
             <ul class="nav-bar">
-                <li><a href=""><span class="link-icon"></span>Home</a></li> 
+                <li><a href="./homepage.php"><span class="link-icon"></span>Home</a></li> 
                 <li><a href="./order.php"><span class="link-icon"></span>Order Online</a></li>
                 <?php if(isset($_SESSION["name"]) && $_SESSION['userid'] == 1) { ?>
                 <li><a href="./manage.php"><span class="link-icon"></span>Manage</a></li>

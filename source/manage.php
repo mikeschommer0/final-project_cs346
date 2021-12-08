@@ -1,5 +1,8 @@
 <?php
 include("../php/sessions.php");
+if(!isset($_SESSION["name"]) || $_SESSION["userid"] > 1) {
+    redirect('./homepage.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,21 +31,9 @@ include("../php/sessions.php");
         </header>
         <nav>
             <ul class="nav-bar">
-                <li><a href=""><span class="link-icon"></span>Home</a></li> 
+                <li><a href="./homepage.php"><span class="link-icon"></span>Home</a></li> 
                 <li><a href="./order.php"><span class="link-icon"></span>Order Online</a></li>
-                <?php if(isset($_SESSION["name"]) && $_SESSION['userid'] == 1) { ?>
-                <li><a href="./manage.php"><span class="link-icon"></span>Manage</a></li>
-                <?php } else if(isset($_SESSION["name"])) { ?>
-                <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
-                <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
-                <li><a href="./about.php"><span class="link-icon"></span>About</a></li>
-                <li><a href="./account.php"><span class="link-icon"></span>Account</a></li>
-                <?php } else { ?>
-                <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
-                <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
-                <li><a href="./about.php"><span class="link-icon"></span>About</a></li>
-                <li><a href="./login.php"><span class="link-icon"></span>Login</a></li> 
-                <?php } ?>
+                <li><a href=""><span class="link-icon"></span>Manage</a></li>
             </ul>
         </nav>
         <main>
