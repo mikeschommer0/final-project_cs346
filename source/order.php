@@ -1,5 +1,9 @@
 <?php
 include("../php/sessions.php");
+
+if(!isset($_SESSION["name"])) {
+    redirect("./login.php");
+} else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -426,3 +430,5 @@ include("../php/sessions.php");
     </div>
 </body>
 </html>
+
+<?php } ?>
