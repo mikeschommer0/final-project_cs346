@@ -1,6 +1,9 @@
 <?php
 include("../php/sessions.php");
-if(!isset($_SESSION["name"]) || $_SESSION["userid"] > 1) {
+if(!isset($_SESSION["name"])) {
+    redirect('./homepage.php');
+}
+if($_SESSION["userid"] > 1) {
     redirect('./homepage.php');
 }
 ?>
