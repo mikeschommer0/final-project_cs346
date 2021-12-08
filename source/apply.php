@@ -133,118 +133,38 @@ include("../php/sessions.php");
                 <legend class="app-headers">Work Experience</legend>
                 <ul>
                     <li>
-                        <label for="most-recent-employer1">Most recent employer:</label>
-                        <input type="text" id="most-recent-employer1" name="most-recent-employer1" value="bobs burgers">
+                        <label for="most-recent-employer">Most recent employer:</label>
+                        <input type="text" id="most-recent-employer" name="most-recent-employer" value="bobs burgers">
                     </li>
                     <li>
-                        <label for="start-of-employment1">Start of employment:</label>
-                        <input type="date" id="start-of-employment1" name="start-of-employment1">
+                        <label for="start-of-employment">Start of employment:</label>
+                        <input type="date" id="start-of-employment" name="start-of-employment">
                     </li>
                     <li>
-                        <label for="end-of-employment1">End of employment:</label>
-                        <input type="date" id="end-of-employment1" name="end-of-employment1">
+                        <label for="end-of-employment">End of employment:</label>
+                        <input type="date" id="end-of-employment" name="end-of-employment">
                     </li>
                     <li>
-                        <label for="supervisor1">Supervisor name:</label>
-                        <input type="text" id="supervisor1" name="supervisor1" value="jim">
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <label for="supervisor-phone1">Supervisor number:</label>
-                        <input type="text" id="supervisor-phone1" name="supervisor-phone1" value="9205556666">
-                    </li>
-                    <li>
-                        <label for="responsiblities1">Job Title:</label>
-                        <input type="text" id="responsiblities1" name="responsiblities1" value="cook">
-                    </li>
-                    <li>
-                        <label for="rate1">Hourly rate:</label>
-                        <input type="text" id="rate1" name="rate1" value=12>
-                    </li>
-                    <li>
-                        <label for="reason1">Reason for leaving:</label>
-                        <input type="text" id="reason1" name="reason1" value="bad pay">
-                    </li>
-                </ul>
-            </fieldset>
-            <!---------------------Work Experience 2--------------------------------------->
-            <fieldset class="app-info">
-                <legend class="app-headers">Work Experience 2</legend>
-                <ul>
-                    <li>
-                        <label for="most-recent-employer2">2nd recent employer:</label>
-                        <input type="text" id="most-recent-employer2" name="most-recent-employer2">
-                    </li>
-                    <li>
-                        <label for="start-of-employment2">Start of employment:</label>
-                        <input type="date" id="start-of-employment2" name="start-of-employment2">
-                    </li>
-                    <li>
-                        <label for="end-of-employment2">End of employment:</label>
-                        <input type="date" id="end-of-employment2" name="end-of-employment2">
-                    </li>
-                    <li>
-                        <label for="supervisor2">Supervisor name:</label>
-                        <input type="text" id="supervisor2" name="supervisor2">
+                        <label for="supervisor">Supervisor name:</label>
+                        <input type="text" id="supervisor" name="supervisor" value="jim">
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <label for="supervisor-phone2">Supervisor number:</label>
-                        <input type="text" id="supervisor-phone2" name="supervisor-phone2">
+                        <label for="supervisor-phone">Supervisor number:</label>
+                        <input type="text" id="supervisor-phone" name="supervisor-phone" value="9205556666">
                     </li>
                     <li>
-                        <label for="responsiblities2">Job Title:</label>
-                        <input type="text" id="responsiblities2" name="responsiblities2">
+                        <label for="responsiblities">Job Title:</label>
+                        <input type="text" id="responsiblities" name="responsiblities" value="cook">
                     </li>
                     <li>
-                        <label for="rate2">Hourly rate:</label>
-                        <input type="text" id="rate2" name="rate2">
+                        <label for="rate">Hourly rate:</label>
+                        <input type="text" id="rate" name="rate" value=12>
                     </li>
                     <li>
-                        <label for="reason2">Reason for leaving:</label>
-                        <input type="text" id="reason2" name="reason2">
-                    </li>
-                </ul>
-            </fieldset>
-            <!------------------------Work Experience 3------------------------------------>
-            <fieldset class="app-info">
-                <legend class="app-headers">Work Experience 3</legend>
-                <ul>
-                    <li>
-                        <label for="most-recent-employer3">3rd recent employer:</label>
-                        <input type="text" id="most-recent-employer3" name="most-recent-employer3">
-                    </li>
-                    <li>
-                        <label for="start-of-employment3">Start of employment:</label>
-                        <input type="date" id="start-of-employment3" name="start-of-employment3">
-                    </li>
-                    <li>
-                        <label for="end-of-employment3">End of employment:</label>
-                        <input type="date" id="end-of-employment3" name="end-of-employment3">
-                    </li>
-                    <li>
-                        <label for="supervisor3">Supervisor name:</label>
-                        <input type="text" id="supervisor3" name="supervisor3">
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <label for="supervisor-phone3">Supervisor number:</label>
-                        <input type="text" id="supervisor-phone3" name="supervisor-phone3">
-                    </li>
-                    <li>
-                        <label for="responsiblities3">Job Title:</label>
-                        <input type="text" id="responsiblities3" name="responsiblities3">
-                    </li>
-                    <li>
-                        <label for="rate3">Hourly rate:</label>
-                        <input type="text" id="rate3" name="rate3">
-                    </li>
-                    <li>
-                        <label for="reason3">Reason for leaving:</label>
-                        <input type="text" id="reason3" name="reason3">
+                        <label for="reason">Reason for leaving:</label>
+                        <input type="text" id="reason" name="reason" value="bad pay">
                     </li>
                 </ul>
             </fieldset>

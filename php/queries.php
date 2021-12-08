@@ -77,13 +77,13 @@ function insert_app_questions($availability, $exp, $late_night, $rate, $hours, $
   }
 }
 
-function insert_app_history($employer_name, $start_date, $end_date, $supervisor_name, $supervisor_number, $title, $past_rate, $reason_for_leaving) {
+function insert_app_history($employer_name, $start_date, $end_date, $supervisor_name, $supervisor_number, $title, $past_rate, $reason_for_leaving, $additional_info) {
   global $db;
 
   try {
-    $query = "INSERT INTO work_history(employer_name, start_date, end_date, supervisor_name, supervisor_number, title, past_rate, reason_for_leaving) VALUES (?,?,?,?,?,?,?,?)";
+    $query = "INSERT INTO work_history(employer_name, start_date, end_date, supervisor_name, supervisor_number, title, past_rate, reason_for_leaving, additional_info) VALUES (?,?,?,?,?,?,?,?,?)";
     $stmt = $db->prepare($query);
-    $stmt->execute([$employer_name, $start_date, $end_date, $supervisor_name, $supervisor_number, $title, $past_rate, $reason_for_leaving]);
+    $stmt->execute([$employer_name, $start_date, $end_date, $supervisor_name, $supervisor_number, $title, $past_rate, $reason_for_leaving, $additional_info]);
     return $db->lastInsertId();
   } catch (PDOException $e) {
       db_disconnect();

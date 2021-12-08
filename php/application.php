@@ -78,7 +78,7 @@
     }
 
     function dbInsertApp() {
-        //insert_app_details($_POST['first-name-app'],$_POST['last-name-app'],$_POST['email-app'], $_POST['phone-number-app'], $_POST['dob-app'], $_POST['address-app'], $_POST['city'], $_POST['state']);
+        insert_app_details($_POST['first-name-app'],$_POST['last-name-app'],$_POST['email-app'], $_POST['phone-number-app'], $_POST['dob-app'], $_POST['address-app'], $_POST['city'], $_POST['state']);
 
         $availiablity = isset($_POST['full-time']) ? 1 : 0;
         $exp = isset($_POST['yes-exp']) ? 1 : 0;
@@ -86,17 +86,19 @@
         $legality = isset($_POST['yes-legally']) ? 1 : 0;
         $felony = isset($_POST['yes-felony']) ? 1 : 0;
 
-        //insert_app_questions($availiablity, $exp, $weekend, $_POST['desired-rate'], $_POST['desired-hours'], $legality, $felony, $_POST['ifyes-felony']);
-        insert_app_history($_POST['most-recent-employer1'],$_POST['start-of-employment1'], $_POST['end-of-employment1'], $_POST['supervisor1'], $_POST['supervisor-phone1'], $_POST['responsiblities1'], $_POST['rate1'],$_POST['reason1']);
+        insert_app_questions($availiablity, $exp, $weekend, $_POST['desired-rate'], $_POST['desired-hours'], $legality, $felony, $_POST['ifyes-felony']);
+        if(isset($_POST['most-recent-employer'])) {
+        insert_app_history($_POST['most-recent-employer'], $_POST['start-of-employment'], $_POST['end-of-employment'], $_POST['supervisor'], $_POST['supervisor-phone'], $_POST['responsiblities'], $_POST['rate'], $_POST['reason'], $_POST['additional-info']);
+        }
         echo "app inserted";
         db_disconnect();
     }
 
-    $isValid = validateName();
-    $isValid = validateEmailPhone();
+    $isValidName = validateName();
+    $isValidEmailPhone = validateEmailPhone();
     
 
-    if($isValid) {
+    if($isValidName && $isValidEmailPhone) {
         sanitize();
         dbInsertApp();
     } else {
