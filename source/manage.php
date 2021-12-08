@@ -16,7 +16,7 @@ include("../php/sessions.php");
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <title>Account</title>
+    <title>Manage</title>
     <script src="../javascript/password-validation.js" defer></script>
 </head>
 <body>
@@ -47,50 +47,14 @@ include("../php/sessions.php");
         </nav>
         <main>
             <fieldset>
-                <legend>Your Account</legend>
-                <form action="" method="POST">
-                    <ul>
-                        <li>
-                            <label for="first-name-account">First Name:</label>
-                            <input type="text" name="first-name-account" id="first-name-account" value="">
-                        </li>
-                        <li>
-                            <label for="last-name-account">Last Name:</label>
-                            <input type="text" name="last-name-account" id="last-name-account" value="">
-                        </li>
-                        <li>
-                            <label for="username-account">Username:</label>
-                            <input type="text" name="username-account" id="username-account" value="">
-                        </li>
-                        <li>
-                            <label for="email-account">Email:</label>
-                            <input type="email" name="email-account" id="email-account" value="">
-                        </li>
-                        <li>
-                            <label for="phone-account">Phone number:</label>
-                            <input type="phone-account" name="phone-account" id="phone-account" value="">
-                        </li>
-                        <li>
-                            <label for="password-signup">Change Password:</label>
-                            <input type="password" name="password-signup" id="password-signup" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}">
-                        </li> 
-                        <div id="password-message">
-                            <h1>Password requirements:</h1>
-                            <p id="password-lcletter" class="invalid">At least one lowercase letter</p>
-                            <p id="password-ucletter" class="invalid">At least one capital letter</p>
-                            <p id="password-number" class="invalid">At least one number</p>
-                            <p id="password-length" class="invalid">A minimum of 10 characters</p>
-                        </div>
-                        <li>
-                            <label for="password-account2">Re-enter Password:</label>
-                            <input type="password" name="password-account2" id="password-account2" value="" minlength="10">
-                        </li>
-                        <li>
-                            <label for="dob-account">Birthday:</label>
-                            <input type="date" name="dob-account" id="dob-account">
-                        </li>
-                    </ul>
-                    <input id="change-info-submit" class="form-buttons" type="submit" value="Submit"/>
+                <legend>Options</legend>
+                <a href="./changeinfo.php"><button type="button">See Applications</button></a>
+                <a href="./changeinfo.php"><button type="button">See Orders</button></a>
+                <a href="./changeinfo.php"><button type="button">See Users</button></a>
+                    <form id="logout" action="logout.php" method="POST">
+                        <input type="submit"  class="form-buttons" value="Log out" >
+                        <input type="hidden" name="logout" value="true" >
+                    </form>
                 </form>
             </fieldset>
         </main>

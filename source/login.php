@@ -10,8 +10,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST["username-login"];
   $password = $_POST["password-login"];
   
-  if (is_password_correct($username, $password)) {
-    $_SESSION["name"] = $username;     # start session, remember user info
+  $db_info = is_password_correct($username, $password);
+  if ($db_info[0]) {
+    $_SESSION["name"] = $username;
+    $_SESSION["userid"] = $db_info[1];
     redirect("./homepage.php", "Signed In!");
   } else {
     $loginFailed = TRUE;

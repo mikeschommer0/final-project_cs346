@@ -20,19 +20,21 @@ function is_password_correct($username, $password) {
   global $db;
   $password_correct = FALSE;
 
-  $query = "SELECT password FROM users WHERE username = ?";
+  $query = "SELECT password, id FROM users WHERE username = ?";
   $statement = $db->prepare($query);
   $statement->execute([$username]);
   $correct_password = 0;
 
   if ($statement) {
     foreach ($statement as $row) {
-      $correct_password = $row["password"]; 
+      $correct_password = $row["password"];
       $password_correct = $correct_password === crypt($password, $correct_password);
+      $user_id = $row["id"];
     }
   }
-  return $password_correct;
+  return [$password_correct, $user_id];
 }
+
 ////////////////////////////////COMMENTS//////////////////////////////////////////////////////////
 function insert_comment($name, $phone, $email, $comment) {
   global $db;
