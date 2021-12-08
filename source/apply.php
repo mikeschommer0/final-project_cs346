@@ -134,7 +134,7 @@ include("../php/sessions.php");
                 <ul>
                     <li>
                         <label for="most-recent-employer1">Most recent employer:</label>
-                        <input type="text" id="most-recent-employer1" name="most-recent-employer1">
+                        <input type="text" id="most-recent-employer1" name="most-recent-employer1" value="bobs burgers">
                     </li>
                     <li>
                         <label for="start-of-employment1">Start of employment:</label>
@@ -146,25 +146,25 @@ include("../php/sessions.php");
                     </li>
                     <li>
                         <label for="supervisor1">Supervisor name:</label>
-                        <input type="text" id="supervisor1" name="supervisor1">
+                        <input type="text" id="supervisor1" name="supervisor1" value="jim">
                     </li>
                 </ul>
                 <ul>
                     <li>
                         <label for="supervisor-phone1">Supervisor number:</label>
-                        <input type="text" id="supervisor-phone1" name="supervisor-phone1">
+                        <input type="text" id="supervisor-phone1" name="supervisor-phone1" value="9205556666">
                     </li>
                     <li>
                         <label for="responsiblities1">Job Title:</label>
-                        <input type="text" id="responsiblities1" name="responsiblities1">
+                        <input type="text" id="responsiblities1" name="responsiblities1" value="cook">
                     </li>
                     <li>
                         <label for="rate1">Hourly rate:</label>
-                        <input type="text" id="rate1" name="rate1">
+                        <input type="text" id="rate1" name="rate1" value=12>
                     </li>
                     <li>
                         <label for="reason1">Reason for leaving:</label>
-                        <input type="text" id="reason1" name="reason1">
+                        <input type="text" id="reason1" name="reason1" value="bad pay">
                     </li>
                 </ul>
             </fieldset>

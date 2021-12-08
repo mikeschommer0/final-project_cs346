@@ -86,7 +86,8 @@
         $legality = isset($_POST['yes-legally']) ? 1 : 0;
         $felony = isset($_POST['yes-felony']) ? 1 : 0;
 
-        insert_app_questions($availiablity, $exp, $weekend, $_POST['desired-rate'], $_POST['desired-hours'], $legality, $felony, $_POST['ifyes-felony']);
+        //insert_app_questions($availiablity, $exp, $weekend, $_POST['desired-rate'], $_POST['desired-hours'], $legality, $felony, $_POST['ifyes-felony']);
+        insert_app_history($_POST['most-recent-employer1'],$_POST['start-of-employment1'], $_POST['end-of-employment1'], $_POST['supervisor1'], $_POST['supervisor-phone1'], $_POST['responsiblities1'], $_POST['rate1'],$_POST['reason1']);
         echo "app inserted";
         db_disconnect();
     }

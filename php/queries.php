@@ -76,5 +76,19 @@ function insert_app_questions($availability, $exp, $late_night, $rate, $hours, $
       exit("Aborting: There was a database error when inserting app questions.");
   }
 }
+
+function insert_app_history($employer_name, $start_date, $end_date, $supervisor_name, $supervisor_number, $title, $past_rate, $reason_for_leaving) {
+  global $db;
+
+  try {
+    $query = "INSERT INTO work_history(employer_name, start_date, end_date, supervisor_name, supervisor_number, title, past_rate, reason_for_leaving) VALUES (?,?,?,?,?,?,?,?)";
+    $stmt = $db->prepare($query);
+    $stmt->execute([$employer_name, $start_date, $end_date, $supervisor_name, $supervisor_number, $title, $past_rate, $reason_for_leaving]);
+    return $db->lastInsertId();
+  } catch (PDOException $e) {
+      db_disconnect();
+      exit("Aborting: There was a database error when inserting app history.");
+  }
+}
 ?>
 
