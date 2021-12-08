@@ -13,7 +13,7 @@ include("../php/sessions.php");
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    
+    <script src="../javascript/apply.js" defer></script>
     <title>Apply</title>
 </head>
 <body>
@@ -176,7 +176,7 @@ include("../php/sessions.php");
             <!----------------------------Submit and Reset---------------------------------->
             <fieldset class="form-fieldset">
                 <input class="form-buttons" type="reset" value="Undo"/>
-                <input class="form-buttons" type="submit" value="Apply"/>
+                <input class="form-buttons" id="apply-submit" type="submit" value="Apply"/>
             </fieldset>
         </form>
         <footer>

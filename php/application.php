@@ -10,6 +10,8 @@
 <body>
     <?php
     require_once('./initialize.php');
+    include("./sessions.php");
+    $errorMessage;
     if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
         <h1>POST request received</h1>
         <pre>
@@ -23,15 +25,15 @@
                 $firstErr = "You Forgot to Enter Your First Name!";
             } else {
                 if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first-name-app"])) {
-                    echo "Only letters and white space allowed"; 
+                   $errorMessage = "Only letters and white space allowed"; 
                     $validName = false;
                 }
             }
             if (empty($_POST["last-name-app"])) {
-                echo "You Forgot to Enter Your Last Name!";
+                $errorMessage = "You Forgot to Enter Your Last Name!";
             } else {
                 if (!preg_match("/^[a-zA-Z ]*$/", $_POST["last-name-app"])) {
-                    echo "Only letters and white space allowed"; 
+                    $errorMessage = "Only letters and white space allowed"; 
                     $validName = false;
                 }
             }
@@ -42,10 +44,10 @@
         $validField = true;
 
         if (empty($_POST["email-app"])) {
-           echo "You Forgot to Enter Your Email!";
+            $errorMessage = "You Forgot to Enter Your Email!";
         } else {
             if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $_POST["email-app"])) {
-                echo "You Entered An Invalid Email Format";
+                $errorMessage = "You Entered An Invalid Email Format";
                 $validField = false; 
             }
         }
@@ -54,7 +56,7 @@
         if (strlen($phoneNum) == 11) {
             $phoneNum = preg_replace("/^1/", '',$phoneNum);
             if (strlen($phoneNum) != 10) {
-                echo "Invalid Phone Number!";
+                $errorMessage = "Invalid Phone Number!";
                 $validField = false;
             }
         }
@@ -67,11 +69,11 @@
         foreach($_POST as $name => $value) {
             if (is_array($value)) { ?>
                 <p>
-                    <?php echo "{$name}: [" . implode(", ", $value) ."]"; ?>
+                    <?php implode(", ", $value); ?>
                 </p>
             <?php } else { ?>
                 <p>
-                    <?php echo "{$name}: " . trim(htmlspecialchars($value)); ?>
+                    <?php trim(htmlspecialchars($value)); ?>
                 </p>
             <?php }
         }
@@ -90,7 +92,7 @@
         if(isset($_POST['most-recent-employer'])) {
         insert_app_history($_POST['most-recent-employer'], $_POST['start-of-employment'], $_POST['end-of-employment'], $_POST['supervisor'], $_POST['supervisor-phone'], $_POST['responsiblities'], $_POST['rate'], $_POST['reason'], $_POST['additional-info']);
         }
-        echo "app inserted";
+        
         db_disconnect();
     }
 
@@ -101,8 +103,9 @@
     if($isValidName && $isValidEmailPhone) {
         sanitize();
         dbInsertApp();
+        redirect("../source/thanks_application.php");
     } else {
-        echo "Error! Something went wrong. Failed to insert user.";
+        redirect("../source/error.php", $errorMessage);
     }
 } ?>
 
