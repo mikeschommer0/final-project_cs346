@@ -44,9 +44,10 @@ if($_SESSION["userid"] > 1) {
             <fieldset>
                 <legend>View</legend>
                 <div id="manage-wrap">
-                    <a href="./changeinfo.php"><button type="button">Applications</button></a>
-                    <a href="./changeinfo.php"><button type="button">Orders</button></a>
-                    <a href="./seeusers.php"><button type="button">Users</button></a>
+                    <a href="./see_applications.php"><button type="button">Applications</button></a>
+                    <a href="./see_orders.php"><button type="button">Orders</button></a>
+                    <a href="./see_users.php"><button type="button">Users</button></a>
+                    <a href="./see_comments.php"><button type="button">Comments</button></a>
                 </div>
             </fieldset>
             <form id="logout" action="logout.php" method="POST">
