@@ -30,7 +30,7 @@ include("../php/sessions.php");
                 <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
                 <li><a href=""><span class="link-icon"></span>About</a></li> 
                 <?php if(isset($_SESSION["name"])) { ?>
-                <li><a href="./account.php"><span class="link-icon"></span>Account</a></li>
+                <li><a href="./changeinfo.php"><span class="link-icon"></span>Account</a></li>
             <?php } else { ?>
                 <li><a href="./login.php"><span class="link-icon"></span>Login</a></li> 
             <?php } ?> 

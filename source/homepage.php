@@ -34,7 +34,7 @@ include("../php/sessions.php");
             <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
             <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
             <li><a href="./about.php"><span class="link-icon"></span>About</a></li>
-            <li><a href="./account.php"><span class="link-icon"></span>Account</a></li>
+            <li><a href="./changeinfo.php"><span class="link-icon"></span>Account</a></li>
             <?php } else { ?>
             <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
             <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>

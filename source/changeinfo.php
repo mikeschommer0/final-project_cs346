@@ -38,7 +38,7 @@ if(!isset($_SESSION["name"])) {
                 <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
                 <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
                 <li><a href="./about.php"><span class="link-icon"></span>About</a></li>
-                <li><a href="./account.php"><span class="link-icon"></span>Account</a></li>
+                <li><a href=""><span class="link-icon"></span>Account</a></li>
                 <?php } else { ?>
                 <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
                 <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
@@ -49,7 +49,7 @@ if(!isset($_SESSION["name"])) {
         </nav>
         <main>
             <fieldset>
-                <legend>Your Account</legend>
+                <legend>Change Details</legend>
                 <form action="" method="POST">
                     <ul>
                         <li>
@@ -93,8 +93,13 @@ if(!isset($_SESSION["name"])) {
                         </li>
                     </ul>
                     <input id="change-info-submit" class="form-buttons" type="submit" value="Submit"/>
+                    
                 </form>
             </fieldset>
+            <form id="logout" action="logout.php" method="POST">
+                    <input type="submit"  class="form-buttons" value="Log Out" >
+                    <input type="hidden" name="logout" value="true" >
+            </form>
         </main>
         <footer>
         <p>
