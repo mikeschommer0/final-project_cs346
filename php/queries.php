@@ -20,19 +20,35 @@ function is_password_correct($username, $password) {
   global $db;
   $password_correct = FALSE;
 
+  try{
   $query = "SELECT password, id FROM users WHERE username = ?";
   $statement = $db->prepare($query);
   $statement->execute([$username]);
   $correct_password = 0;
 
-  if ($statement) {
-    foreach ($statement as $row) {
-      $correct_password = $row["password"];
-      $password_correct = $correct_password === crypt($password, $correct_password);
-      $user_id = $row["id"];
+    if ($statement) {
+      foreach ($statement as $row) {
+        $correct_password = $row["password"];
+        $password_correct = $correct_password === crypt($password, $correct_password);
+        $user_id = $row["id"];
+      }
     }
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error when finding password.");
   }
   return [$password_correct, $user_id];
+}
+
+function get_users($restricted_id) {
+  global $db;
+
+  $query = "SELECT id, first_name, last_name, username, email, phone, dob FROM users WHERE id > ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$restricted_id]);
+
+  return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 ////////////////////////////////COMMENTS//////////////////////////////////////////////////////////

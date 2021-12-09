@@ -1,4 +1,7 @@
 <?php
+include("../php/database.php");
+include("../php/queries.php");
+include("../php/initialize.php");
 include("../php/sessions.php");
 if(!isset($_SESSION["name"])) {
     redirect('./homepage.php');
@@ -22,8 +25,7 @@ if($_SESSION["userid"] > 1) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <title>Manage</title>
-    <script src="../javascript/password-validation.js" defer></script>
+    <title>Users</title>
 </head>
 <body>
     <div id="wrapper">
@@ -40,17 +42,29 @@ if($_SESSION["userid"] > 1) {
             </ul>
         </nav>
         <main>
-            <fieldset>
-                <legend>Options</legend>
-                <a href="./changeinfo.php"><button type="button">See Applications</button></a>
-                <a href="./changeinfo.php"><button type="button">See Orders</button></a>
-                <a href="./seeusers.php"><button type="button">See Users</button></a>
-                    <form id="logout" action="logout.php" method="POST">
-                        <input type="submit"  class="form-buttons" value="Log out" >
-                        <input type="hidden" name="logout" value="true" >
-                    </form>
-                </form>
-            </fieldset>
+            <?php $users = get_users($_SESSION["userid"]); ?>
+            <table>
+                <tr>
+                    <td>Id</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Username</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                    <td>DOB</td>
+                </tr>
+                <?php foreach($users as $user) { ?>
+                <tr>
+                    <td> <?= $user['id'] ?> </td>
+                    <td> <?= $user['first_name'] ?> </td>
+                    <td> <?= $user['last_name'] ?> </td>
+                    <td> <?= $user['username'] ?> </td>
+                    <td> <?= $user['email'] ?> </td>
+                    <td> <?= $user['phone'] ?> </td>
+                    <td> <?= $user['dob'] ?> </td>
+                </tr>
+                <?php } ?>
+            </table>
         </main>
         <footer>
         <p>
@@ -59,7 +73,7 @@ if($_SESSION["userid"] > 1) {
             construed in any way as being officially
             connected with or representative of Polito's Pizza.
         </p> 
-        </footer>
+    </footer>
     </div>
-    </body>
-    </html>
+</body>
+</html>

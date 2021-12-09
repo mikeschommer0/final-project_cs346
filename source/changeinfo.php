@@ -4,7 +4,7 @@ if(!isset($_SESSION["name"])) {
     redirect('./homepage.php');
 }
 ?>
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
