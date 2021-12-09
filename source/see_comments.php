@@ -12,19 +12,13 @@ if($_SESSION["userid"] > 1) {
 
 $_SESSION["flash"] = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["comment-to-delete"])) {
-        $commentToBeDeleted = $_POST["comment-to-delete"];
-        $commentToBeDeleted = trim(htmlspecialchars($commentToBeDeleted));
-
+        $commentToBeDeleted = $_POST["delete-comment"];
         if(delete_comment($commentToBeDeleted)) {
             $_SESSION["flash"] = "Comment $commentToBeDeleted was deleted successfully!";
 
         } else {
             $_SESSION["flash"] = "Comment $commentToBeDeleted was not deleted!";
-        }
-    } else {
-        $_SESSION["flash"] = "You cannot delete this comment.";
-    } 
+        } 
 } 
 ?>
 
@@ -70,21 +64,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th>Phone</th>
                     <th>Comment</th>
                 </tr>
-                <?php foreach($submissions as $submission) { ?>
+                <?php foreach($submissions as $submission) { 
+                    $id = $submission['id']; ?>
                 <tr>
                     <td> <?= $submission['id'] ?> </td>
                     <td> <?= $submission['name'] ?> </td>
                     <td> <?= $submission['email'] ?> </td>
                     <td> <?= $submission['phone'] ?> </td>
                     <td> <?= $submission['comment'] ?> </td>
+                    <form action="see_comments.php" method="POST">
+                        <input type="hidden" name="delete-comment" value="<?php echo $id; ?>">
+                        <td><button class="form-buttons" type="submit" id="delete-comment">Delete</button></td>
+                    </form>
                 </tr>
                 <?php } ?>
             </table>
-            <form action="./see_comments.php" id="delete-comment-form" method="POST">
-                <label for="comment-to-delete">Choose an ID to delete</label>
-                <input type="text" id="comment-to-delete" name="comment-to-delete">
-                <input class="form-buttons" type="submit" id="delete-comment">
-            </form>
             <p><?= $_SESSION["flash"] ?></p>
         </main>
         <footer>
