@@ -9,6 +9,18 @@ if(!isset($_SESSION["name"])) {
 if($_SESSION["userid"] > 1) {
     redirect('./homepage.php');
 }
+
+$_SESSION["flash"] = "";
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $appToBeDeleted = $_POST["delete-app"];
+    echo $appToBeDeleted;
+    if(delete_app($appToBeDeleted)) {
+        $_SESSION["flash"] = "App $appToBeDeleted was deleted successfully!";
+
+    } else {
+        $_SESSION["flash"] = "App $appToBeDeleted was not deleted!";
+    }
+} 
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +39,6 @@ if($_SESSION["userid"] > 1) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <!-- <script src="../javascript/manage.js" defer></script> -->
     <title>Users</title>
 </head>
 <body>
@@ -65,11 +76,15 @@ if($_SESSION["userid"] > 1) {
                     <form action="detailed_app.php" method="POST">
                         <input type="hidden" name="app_id" value="<?php echo $id; ?>">
                         <td><button class="form-buttons" type="submit" id="view-app">View</button></td>
-                        <td><input class="form-buttons" type="submit" id="view-app" value="Delete"> </td>
+                    </form>
+                    <form action="see_applications.php" method="POST">
+                        <input type="hidden" name="delete-app" value="<?php echo $id; ?>">
+                        <td><button class="form-buttons" type="submit" id="delete-app">Delete</button></td>
                     </form>
                 </tr>
                 <?php } ?>
             </table>
+            <p><?php echo $_SESSION["flash"]; ?></p>
         </main>
         <footer>
         <p>

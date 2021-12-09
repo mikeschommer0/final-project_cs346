@@ -193,6 +193,28 @@ function get_all_apps() {
     }
 }
 
+function delete_app($id) {
+  global $db;
+  $appDeleted = false;
+  try{
+  $query = "DELETE FROM application_details WHERE app_id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  $query = "DELETE FROM application_questions WHERE app_id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  $query = "DELETE FROM work_history WHERE app_id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  $appDeleted = true;
+  return $appDeleted;
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error deleting an application.");
+  }
+}
+
 function insert_app_questions($availability, $exp, $late_night, $rate, $hours, $legality, $felon, $if_felon) {
   global $db;
 
