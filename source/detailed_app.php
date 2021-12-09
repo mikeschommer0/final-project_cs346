@@ -27,6 +27,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/apply.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../css/manage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -193,10 +195,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </fieldset>
             <?php } ?>
             <!----------------------------Submit and Reset---------------------------------->
-            <fieldset class="form-fieldset">
-                <input class="form-buttons" type="reset" value="Undo"/>
-                <input class="form-buttons" id="apply-submit" type="submit" value="Apply"/>
-            </fieldset>
+            <div id="back-wrap">
+                <a href="./see_applications.php"><button type="button">Back</button></a>
+            </div>
         </form>
         <footer>
             <p>

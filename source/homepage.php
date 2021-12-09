@@ -47,7 +47,7 @@ include("../php/sessions.php");
         <div id ="homescreen-img"></div>
         <div id = "main-subtitles">
             <h1>Our Specials</h1>
-            <a href="./menu.php"><button type="button">View Our Menu</button></a></li>
+            <a href="./menu.php"><button type="button">View Our Menu</button></a>
         </div>
         <div class="main-text">
             <ul>

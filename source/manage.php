@@ -43,7 +43,7 @@ if($_SESSION["userid"] > 1) {
         <main>
             <fieldset>
                 <legend>View</legend>
-                <div id="manage-wrap">
+                <div class="manage-wrap">
                     <a href="./see_applications.php"><button type="button">Applications</button></a>
                     <a href="./see_orders.php"><button type="button">Orders</button></a>
                     <a href="./see_users.php"><button type="button">Users</button></a>
