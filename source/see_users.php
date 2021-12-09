@@ -12,20 +12,13 @@ if($_SESSION["userid"] > 1) {
 
 $_SESSION["flash"] = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["user-to-delete"])) {
-        $idToBeDeleted = $_POST["user-to-delete"];
-        $idToBeDeleted = trim(htmlspecialchars($idToBeDeleted));
-    }
-    if($idToBeDeleted > 1) {
-        if(delete_user($idToBeDeleted)) {
-            $_SESSION["flash"] = "User $idToBeDeleted was deleted successfully!";
+    $userToBeDeleted = $_POST["delete-user"];
+    if(delete_user($userToBeDeleted)) {
+        $_SESSION["flash"] = "User $userToBeDeleted was deleted successfully!";
 
-        } else {
-            $_SESSION["flash"] = "User $idToBeDeleted was not deleted!";
-        }
     } else {
-        $_SESSION["flash"] = "You cannot delete this user.";
-    } 
+        $_SESSION["flash"] = "User $userToBeDeleted was not deleted!";
+    }
 } 
 ?>
 
@@ -71,9 +64,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th>Username</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>DOB</th>
                 </tr>
-                <?php foreach($users as $user) { ?>
+                <?php foreach($users as $user) { 
+                    $id = $user['id']; ?>
                 <tr>
                     <td> <?= $user['id'] ?> </td>
                     <td> <?= $user['first_name'] ?> </td>
@@ -81,15 +74,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td> <?= $user['username'] ?> </td>
                     <td> <?= $user['email'] ?> </td>
                     <td> <?= $user['phone'] ?> </td>
-                    <td> <?= $user['dob'] ?> </td>
+                    <form action="see_users.php" method="POST">
+                        <input type="hidden" name="delete-user" value="<?php echo $id; ?>">
+                        <td><button class="form-buttons" type="submit" id="delete-user">Delete</button></td>
+                    </form>
                 </tr>
                 <?php } ?>
             </table>
-            <form action="./see_users.php" id="delete-user-form" method="POST">
-                <label for="user-to-delete">Choose an ID to delete</label>
-                <input type="text" id="user-to-delete" name="user-to-delete">
-                <input class="form-buttons" type="submit" id="delete-user">
-            </form>
             <p><?= $_SESSION["flash"] ?></p>
         </main>
         <footer>

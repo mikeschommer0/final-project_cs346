@@ -13,7 +13,6 @@ if($_SESSION["userid"] > 1) {
 $_SESSION["flash"] = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $appToBeDeleted = $_POST["delete-app"];
-    echo $appToBeDeleted;
     if(delete_app($appToBeDeleted)) {
         $_SESSION["flash"] = "App $appToBeDeleted was deleted successfully!";
 
