@@ -132,22 +132,6 @@ h2 {
   font-weight: bold;
 }
 
-/*------------------------Tables--------------------------------*/
-
-table {
-  width: 100%;
-  padding: 15px;
-}
-
-td, th{
-  text-align: center;
-  padding: 10px;
-}
-
-th {
-  padding-bottom: 0;
-  text-decoration: underline;
-}
 
  /*-----------------------Footer--------------------------------*/
 

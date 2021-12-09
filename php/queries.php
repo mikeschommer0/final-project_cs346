@@ -31,6 +31,7 @@ function is_password_correct($username, $password) {
         $correct_password = $row["password"];
         $password_correct = $correct_password === crypt($password, $correct_password);
         $user_id = $row["id"];
+        return [$password_correct, $user_id];
       }
     }
   } catch(PDOException $e) {
@@ -38,17 +39,37 @@ function is_password_correct($username, $password) {
     echo $e;
     exit("Aborting: There was a database error when finding password.");
   }
-  return [$password_correct, $user_id];
 }
 
 function get_users($restricted_id) {
   global $db;
 
+  try{
   $query = "SELECT id, first_name, last_name, username, email, phone, dob FROM users WHERE id > ?";
   $statement = $db->prepare($query);
   $statement->execute([$restricted_id]);
-
   return $statement->fetchAll(PDO::FETCH_ASSOC);
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error getting all users.");
+  }
+}
+
+function delete_user($id) {
+  global $db;
+  $userDeleted = false;
+  try{
+  $query = "DELETE FROM users where id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  $userDeleted = true;
+  return $userDeleted;
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error deleting a user.");
+  }
 }
 
 ////////////////////////////////COMMENTS//////////////////////////////////////////////////////////

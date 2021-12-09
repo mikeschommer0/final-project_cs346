@@ -9,3 +9,4 @@ function redirect($url, $flash_message = NULL) {
   header("Location: $url");
   die;
 }
+
