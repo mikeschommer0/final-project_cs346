@@ -12,19 +12,18 @@ if($_SESSION["userid"] > 1) {
 
 $_SESSION["flash"] = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["user-to-delete"])) {
-        $idToBeDeleted = $_POST["user-to-delete"];
-        $idToBeDeleted = trim(htmlspecialchars($idToBeDeleted));
-    }
-    if($idToBeDeleted > 1) {
-        if(delete_user($idToBeDeleted)) {
-            $_SESSION["flash"] = "user $idToBeDeleted was deleted successfully";
+    if(isset($_POST["comment-to-delete"])) {
+        $commentToBeDeleted = $_POST["comment-to-delete"];
+        $commentToBeDeleted = trim(htmlspecialchars($commentToBeDeleted));
+
+        if(delete_comment($commentToBeDeleted)) {
+            $_SESSION["flash"] = "Comment $commentToBeDeleted was deleted successfully!";
 
         } else {
-            $_SESSION["flash"] = "user $idToBeDeleted was not deleted";
+            $_SESSION["flash"] = "Comment $commentToBeDeleted was not deleted!";
         }
     } else {
-        $_SESSION["flash"] = "You cannot delete this user.";
+        $_SESSION["flash"] = "You cannot delete this comment.";
     } 
 } 
 ?>
@@ -62,33 +61,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </nav>
         <main>
-            <?php $users = get_users($_SESSION["userid"]); ?>
+            <?php $submissions = get_comments(); ?>
             <table>
                 <tr>
                     <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>DOB</th>
+                    <th>Comment</th>
                 </tr>
-                <?php foreach($users as $user) { ?>
+                <?php foreach($submissions as $submission) { ?>
                 <tr>
-                    <td> <?= $user['id'] ?> </td>
-                    <td> <?= $user['first_name'] ?> </td>
-                    <td> <?= $user['last_name'] ?> </td>
-                    <td> <?= $user['username'] ?> </td>
-                    <td> <?= $user['email'] ?> </td>
-                    <td> <?= $user['phone'] ?> </td>
-                    <td> <?= $user['dob'] ?> </td>
+                    <td> <?= $submission['id'] ?> </td>
+                    <td> <?= $submission['name'] ?> </td>
+                    <td> <?= $submission['email'] ?> </td>
+                    <td> <?= $submission['phone'] ?> </td>
+                    <td> <?= $submission['comment'] ?> </td>
                 </tr>
                 <?php } ?>
             </table>
-            <form action="./seeusers.php" id="delete-user-form" method="POST">
-                <label for="user-to-delete">Choose an ID to delete</label>
-                <input type="text" id="user-to-delete" name="user-to-delete">
-                <input class="form-buttons" type="submit" id="delete-user">
+            <form action="./see_comments.php" id="delete-comment-form" method="POST">
+                <label for="comment-to-delete">Choose an ID to delete</label>
+                <input type="text" id="comment-to-delete" name="comment-to-delete">
+                <input class="form-buttons" type="submit" id="delete-comment">
             </form>
             <p><?= $_SESSION["flash"] ?></p>
         </main>

@@ -18,10 +18,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if($idToBeDeleted > 1) {
         if(delete_user($idToBeDeleted)) {
-            $_SESSION["flash"] = "user $idToBeDeleted was deleted successfully";
+            $_SESSION["flash"] = "User $idToBeDeleted was deleted successfully!";
 
         } else {
-            $_SESSION["flash"] = "user $idToBeDeleted was not deleted";
+            $_SESSION["flash"] = "User $idToBeDeleted was not deleted!";
         }
     } else {
         $_SESSION["flash"] = "You cannot delete this user.";
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
                 <?php } ?>
             </table>
-            <form action="./seeusers.php" id="delete-user-form" method="POST">
+            <form action="./see_users.php" id="delete-user-form" method="POST">
                 <label for="user-to-delete">Choose an ID to delete</label>
                 <input type="text" id="user-to-delete" name="user-to-delete">
                 <input class="form-buttons" type="submit" id="delete-user">

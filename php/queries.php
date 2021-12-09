@@ -87,6 +87,37 @@ function insert_comment($name, $phone, $email, $comment) {
   }
 }
 
+function get_comments() {
+  global $db;
+
+  try{
+  $query = "SELECT id, name, phone, email, comment FROM contact";
+  $statement = $db->prepare($query);
+  $statement->execute();
+  return $statement->fetchAll(PDO::FETCH_ASSOC);
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error getting all comments.");
+  }
+}
+
+function delete_comment($id) {
+  global $db;
+  $commentDeleted = false;
+  try{
+  $query = "DELETE FROM contact WHERE id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  $commentDeleted = true;
+  return $commentDeleted;
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error deleting a comment.");
+  }
+}
+
 ////////////////////////////////////APP///////////////////////////////////////////////////////////////
 function insert_app_details($first, $last, $email, $phone, $dob, $address, $city, $state) {
   global $db;
