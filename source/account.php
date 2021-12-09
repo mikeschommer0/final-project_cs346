@@ -41,7 +41,7 @@ include("../php/sessions.php");
                 <legend>Options</legend>
                 <a href="./changeinfo.php"><button type="button">Change Information</button></a>
                     <form id="logout" action="logout.php" method="POST">
-                        <input type="submit"  class="form-buttons" value="Log out" >
+                        <input type="submit"  class="form-buttons" value="Log Out" >
                         <input type="hidden" name="logout" value="true" >
                     </form>
                 </form>

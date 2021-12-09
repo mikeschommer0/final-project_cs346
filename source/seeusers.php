@@ -12,20 +12,20 @@ if($_SESSION["userid"] > 1) {
 
 $_SESSION["flash"] = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-  $idToBeDeleted = $_POST["user-to-delete"];
-  
-  $idToBeDeleted = trim(htmlspecialchars($idToBeDeleted));
-
-  if($idToBeDeleted > 1) {
-    if(delete_user($idToBeDeleted)) {
-        $_SESSION["flash"] = "user $idToBeDeleted was deleted successfully";
-
-    } else {
-        $_SESSION["flash"] = "user $idToBeDeleted was not deleted";
+    if(isset($_POST["user-to-delete"])) {
+        $idToBeDeleted = $_POST["user-to-delete"];
+        $idToBeDeleted = trim(htmlspecialchars($idToBeDeleted));
     }
-  } else {
-    $_SESSION["flash"] = "You cannot delete this user.";
-  } 
+    if($idToBeDeleted > 1) {
+        if(delete_user($idToBeDeleted)) {
+            $_SESSION["flash"] = "user $idToBeDeleted was deleted successfully";
+
+        } else {
+            $_SESSION["flash"] = "user $idToBeDeleted was not deleted";
+        }
+    } else {
+        $_SESSION["flash"] = "You cannot delete this user.";
+    } 
 } 
 ?>
 

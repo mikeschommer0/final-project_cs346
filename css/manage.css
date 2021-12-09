@@ -8,6 +8,14 @@ text-align: center;
 padding: 10px;
 }
 
+.manage-wrap {
+    width: 300px;
+}
+
+button {
+    width: 100%;
+}
+
 th {
 padding-bottom: 0;
 text-decoration: underline;

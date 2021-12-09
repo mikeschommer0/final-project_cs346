@@ -19,10 +19,11 @@ if($_SESSION["userid"] > 1) {
     <link rel="stylesheet" href="../css/apply.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="../css/manage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <title>Manage</title>
+    <title>Admin</title>
     <script src="../javascript/password-validation.js" defer></script>
 </head>
 <body>
@@ -41,16 +42,17 @@ if($_SESSION["userid"] > 1) {
         </nav>
         <main>
             <fieldset>
-                <legend>Options</legend>
-                <a href="./changeinfo.php"><button type="button">See Applications</button></a>
-                <a href="./changeinfo.php"><button type="button">See Orders</button></a>
-                <a href="./seeusers.php"><button type="button">See Users</button></a>
-                    <form id="logout" action="logout.php" method="POST">
-                        <input type="submit"  class="form-buttons" value="Log out" >
-                        <input type="hidden" name="logout" value="true" >
-                    </form>
-                </form>
+                <legend>View</legend>
+                <div id="manage-wrap">
+                    <a href="./changeinfo.php"><button type="button">Applications</button></a>
+                    <a href="./changeinfo.php"><button type="button">Orders</button></a>
+                    <a href="./seeusers.php"><button type="button">Users</button></a>
+                </div>
             </fieldset>
+            <form id="logout" action="logout.php" method="POST">
+                <input type="submit"  class="form-buttons" value="Log Out" >
+                <input type="hidden" name="logout" value="true" >
+            </form>
         </main>
         <footer>
         <p>
