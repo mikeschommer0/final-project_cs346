@@ -10,12 +10,9 @@
 <body>
     <?php
     require_once('./initialize.php');
+    include("./sessions.php");
+    $errorMessage;
     if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
-        <h1>POST request received</h1>
-        <pre>
-            <?php print_r($_POST); ?>
-        </pre>
-
         <?php
         function validateName() {
             $validName = true;
@@ -23,15 +20,15 @@
                 $firstErr = "You Forgot to Enter Your First Name!";
             } else {
                 if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first-name-signup"])) {
-                    echo "Only letters and white space allowed"; 
+                    $errorMessage = "Only letters and white space allowed"; 
                     $validName = false;
                 }
             }
             if (empty($_POST["last-name-signup"])) {
-                echo "You Forgot to Enter Your Last Name!";
+                $errorMessage =  "You Forgot to Enter Your Last Name!";
             } else {
                 if (!preg_match("/^[a-zA-Z ]*$/", $_POST["last-name-signup"])) {
-                    echo "Only letters and white space allowed"; 
+                    $errorMessage = "Only letters and white space allowed"; 
                     $validName = false;
                 }
             }
@@ -41,25 +38,25 @@
         function validateUsernamePassword() {
             $validField;
             if (empty($_POST["username-signup"])) {
-                echo "You Forgot to Enter Your Username!";
+                $errorMessage =  "You Forgot to Enter Your Username!";
                $validField = false;
             }
 
             if(!empty($_POST["password-signup"]) && isset($_POST["password-signup"])){
                 if (strlen($_POST["password-signup"]) < '10') {
-                    echo "Your password-signup Must Contain At Least 10 Digits!";
+                    $errorMessage =  "Your password-signup Must Contain At Least 10 Digits!";
                     $validField = false;
                 } elseif(!preg_match("#[0-9]+#", $_POST["password-signup"])) {
-                    echo "Your password-signup Must Contain At Least 1 Number!";
+                    $errorMessage =  "Your password-signup Must Contain At Least 1 Number!";
                     $validField = false;
                 } elseif(!preg_match("#[A-Z]+#", $_POST["password-signup"])) {
-                   echo "Your password-signup Must Contain At Least 1 Capital Letter!";
+                    $errorMessage =  "Your password-signup Must Contain At Least 1 Capital Letter!";
                    $validField = false;
                 } elseif(!preg_match("#[a-z]+#", $_POST["password-signup"])) {
-                    echo "Your password-signup Must Contain At Least 1 Lowercase Letter!";
+                    $errorMessage =  "Your password-signup Must Contain At Least 1 Lowercase Letter!";
                     $validField = false;
                 } elseif($_POST["password-signup"] != $_POST["password-signup2"]) {
-                    echo "Password does not match!";
+                    $errorMessage =  "Password does not match!";
                     $validField = false;
                 } else {
                     $validField = true;
@@ -72,10 +69,10 @@
         $validField = true;
 
         if (empty($_POST["email-signup"])) {
-           echo "You Forgot to Enter Your Email!";
+            $errorMessage =  "You Forgot to Enter Your Email!";
         } else {
             if (!filter_var($_POST["email-signup"], FILTER_VALIDATE_EMAIL)) {
-                echo "You Entered An Invalid Email Format";
+                $errorMessage =  "You Entered An Invalid Email Format";
                 $validField = false; 
             }
         }
@@ -84,7 +81,7 @@
         if (strlen($phoneNum) == 11) {
             $phoneNum = preg_replace("/^1/", '',$phoneNum);
             if (strlen($phoneNum) != 10) {
-                echo "Invalid Phone Number!";
+                $errorMessage =  "Invalid Phone Number!";
                 $validField = false;
             }
         }
@@ -97,11 +94,11 @@
         foreach($_POST as $name => $value) {
             if (is_array($value)) { ?>
                 <p>
-                    <?php echo "{$name}: [" . implode(", ", $value) ."]"; ?>
+                    <?php implode(", ", $value); ?>
                 </p>
             <?php } else { ?>
                 <p>
-                    <?php echo "{$name}: " . trim(htmlspecialchars($value)); ?>
+                    <?php trim(htmlspecialchars($value)); ?>
                 </p>
             <?php }
         }
@@ -113,15 +110,16 @@
         db_disconnect();
     }
 
-    $isValid = validateName();
-    $isValid = validateUsernamePassword();
-    $isValid = validateEmailPhone();
+    $isValidName = validateName();
+    $isValidUsernamePassword = validateUsernamePassword();
+    $isValidEmailPhone = validateEmailPhone();
 
-    if($isValid) {
+    if($isValidName && $isValidUsernamePassword && $isValidEmailPhone) {
         sanitize();
         dbInsertUser();
+        redirect("../source/login.php", "Sign up successful! You may now log in.");
     } else {
-        echo "Error! Something went wrong. Failed to insert user.";
+        redirect("../source/error.php", $errorMessage);
     }
 } ?>
 

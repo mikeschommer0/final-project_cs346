@@ -13,11 +13,6 @@
     include("./sessions.php");
     $errorMessage;
     if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
-        <h1>POST request received</h1>
-        <pre>
-            <?php print_r($_POST); ?>
-        </pre>
-
         <?php
         function validateName() {
             $validName = true;

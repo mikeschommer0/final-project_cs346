@@ -6,7 +6,6 @@ include("../php/sessions.php");
 
 $loginFailed = FALSE;
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    
   $username = $_POST["username-login"];
   $password = $_POST["password-login"];
   
@@ -61,6 +60,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <fieldset>
                 <legend>Sign in</legend>
                 <ul>
+                    <?php if(isset($_SESSION['flash'])) {
+                        $confirmMessage = $_SESSION['flash'];
+                        $_SESSION['flash'] = ""; ?>
+                        <li> <?php echo $confirmMessage ?> </li>
+                    <?php } ?>
                     <li>
                         <label for="username-login">Username:</label>
                         <input type="text" name="username-login" id="username-login" value="<?= $username ?>" required>
