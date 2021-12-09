@@ -10,8 +10,8 @@ if(!isset($_SESSION["name"])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="choice"t" content="width=device-width, initial-scale=1.0">
+    <meta name="choice" content="noindex, nofollow">
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/order.css">
@@ -58,11 +58,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Sausage, Pepperoni, Mushrooms, Onions, Green Peppers</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="supreme14" id="supreme14">
+                                <input type="radio" name="choice" value="14&quot; Supreme" id="choice-supreme14">
                                 <label for="supreme14">14"</label>
-                                <input type="radio" name="supreme20" id="supreme20">
+                                <input type="radio" name="choice" value="20&quot; Supreme" id="choice-supreme20">
                                 <label for="supreme20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -73,11 +73,11 @@ if(!isset($_SESSION["name"])) {
                             <li>BBQ Sauce, Chicken, Bacon, Onions</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="bbqchicken14" id="bbqchicken14">
+                                <input type="radio" name="choice2" value="14&quot; BBQ Chicken" id="choice-bbqchicken14">
                                 <label for="bbqchicken14">14"</label>
-                                <input type="radio" name="bbqchicken20" id="bbqchicken20">
+                                <input type="radio" name="choice2" value="20&quot; BBQ Chicken" id="choice-bbqchicken20">
                                 <label for="bbqchicken20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -88,11 +88,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Pepperoni, Canadian Bacon, Sausage, Bacon, Ground Beef</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="meatamore14" id="meatamore14">
+                                <input type="radio" name="choice3" id="meatamore14">
                                 <label for="meatamore14">14"</label>
-                                <input type="radio" name="meatamore20" id="meatamore20">
+                                <input type="radio" name="choice3"id="meatamore20">
                                 <label for="meatamore20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -103,11 +103,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Hot Sauce, Chicken, Onions</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="buffalochicken14" id="buffalochicken14">
+                                <input type="radio" name="choice4" id="buffalochicken14">
                                 <label for="buffalochicken14">14"</label>
-                                <input type="radio" name="buffalochicken20" id="buffalochicken20">
+                                <input type="radio" name="choice4" id="buffalochicken20">
                                 <label for="buffalochicken20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -118,11 +118,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Ranch, Chicken, Bacon</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="cbr14" id="cbr14">
+                                <input type="radio" name="choice5" id="cbr14">
                                 <label for="cbr14">14"</label>
-                                <input type="radio" name="cbr20" id="cbr20">
+                                <input type="radio" name="choice5" id="cbr20">
                                 <label for="cbr20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -133,11 +133,11 @@ if(!isset($_SESSION["name"])) {
                             <li>BBQ Sauce, Canadian Bacon, Pineapple</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="hawaiian14" id="hawaiian14">
+                                <input type="radio" name="choice6" id="hawaiian14">
                                 <label for="hawaiian14">14"</label>
-                                <input type="radio" name="hawaiian20" id="hawaiian20">
+                                <input type="radio" name="choice6" id="hawaiian20">
                                 <label for="hawaiian20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -148,11 +148,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Chicken and Basil</li>
                             <li><fieldset id="chicken-parm">
                                 <legend>Options</legend>
-                                <input type="radio" name="parm14" id="parm14">
+                                <input type="radio" name="choice7" id="parm14">
                                 <label for="parm14">14"</label>
-                                <input type="radio" name="parm20" id="parm20">
+                                <input type="radio" name="choice7" id="parm20">
                                 <label for="parm20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -164,11 +164,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Garlic, Tomatoes, Mushrooms, Black Olives, Onions, Green Peppers</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="radio" name="veggie14" id="veggie14">
+                                    <input type="radio" name="choice8" id="veggie14">
                                     <label for="veggie14">14"</label>
-                                    <input type="radio" name="veggie20" id="veggie20">
+                                    <input type="radio" name="choice8" id="veggie20">
                                     <label for="veggie20">20"</label>
-                                    <button>Add to order</button>
+                                    <button class="add">Add to order</button>
                                 </fieldset>
                                 </li>
                             </ul>
@@ -179,11 +179,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Garlic, Tomatoes, Basil</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="radio" name="basil14" id="basil14">
+                                    <input type="radio" name="choice9" id="basil14">
                                     <label for="basil14">14"</label>
-                                    <input type="radio" name="basil20" id="basil20">
+                                    <input type="radio" name="choice9" id="basil20">
                                     <label for="basil20">20"</label>
-                                    <button>Add to order</button>
+                                    <button class="add">Add to order</button>
                                 </fieldset>
                                 </li>
                             </ul>
@@ -194,11 +194,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Olive Oil, Garlic, Tomatoes, Black Olives, Spinach, Broccoli, Feta, Oregano</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="radio" name="florentine14" id="florentine14">
+                                    <input type="radio" name="choice10" id="florentine14">
                                     <label for="florentine14">14"</label>
-                                    <input type="radio" name="florentine20" id="florentine20">
+                                    <input type="radio" name="choice10" id="florentine20">
                                     <label for="florentine20">20"</label>
-                                    <button>Add to order</button>
+                                    <button class="add">Add to order</button>
                                 </fieldset>
                                 </li>
                             </ul>
@@ -209,11 +209,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Garlic, Tomatoes, Spinach, Feta</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="radio" name="spinach14" id="spinach14">
+                                    <input type="radio" name="choice11" id="spinach14">
                                     <label for="spinach14">14"</label>
-                                    <input type="radio" name="spinach20" id="spinach20">
+                                    <input type="radio" name="choice11" id="spinach20">
                                     <label for="spinach20">20"</label>
-                                    <button>Add to order</button>
+                                    <button class="add">Add to order</button>
                                 </fieldset>
                                 </li>
                             </ul>
@@ -224,11 +224,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Garlic, Tomatoes, Green and Black Olives, Spinach, Feta</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="radio" name="greek14" id="greek14">
+                                    <input type="radio" name="choice12" id="greek14">
                                     <label for="greek14">14"</label>
-                                    <input type="radio" name="greek20" id="greek20">
+                                    <input type="radio" name="choice12" id="greek20">
                                     <label for="greek20">20"</label>
-                                    <button>Add to order</button>
+                                    <button class="add">Add to order</button>
                                 </fieldset>
                                 </li>
                             </ul>
@@ -239,11 +239,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Mac noodles and our three cheese blend</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="radio" name="mac14" id="mac14">
+                                    <input type="radio" name="choice13" id="mac14">
                                     <label for="mac14">14"</label>
-                                    <input type="radio" name="mac20" id="mac20">
+                                    <input type="radio" name="choice13" id="mac20">
                                     <label for="mac20">20"</label>
-                                    <button>Add to order</button>
+                                    <button class="add">Add to order</button>
                                 </fieldset>
                                 </li>
                             </ul>
@@ -261,11 +261,11 @@ if(!isset($_SESSION["name"])) {
                                     <li>Sliced Beef, Green Peppers, Onions, Mushrooms and our Three Cheese Blend</li>
                                     <li><fieldset>
                                         <legend>Options</legend>
-                                        <input type="radio" name="philly14" id="philly14">
+                                        <input type="radio" name="choice14" id="philly14">
                                         <label for="philly14">14"</label>
-                                        <input type="radio" name="philly20" id="philly20">
+                                        <input type="radio" name="choice14" id="philly20">
                                         <label for="philly20">20"</label>
-                                        <button>Add to order</button>
+                                        <button class="add">Add to order</button>
                                     </fieldset>
                                     </li>
                         </ul>
@@ -276,11 +276,11 @@ if(!isset($_SESSION["name"])) {
                             <li>BBQ Sauce, Sliced Beef, Fries and our Three Cheese Blend</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="bbqsaf14" id="bbqsaf14">
+                                <input type="radio" name="choice15" id="bbqsaf14">
                                 <label for="bbqsaf14">14"</label>
-                                <input type="radio" name="bbqsaf20" id="bbqsaf20">
+                                <input type="radio" name="choice15" id="bbqsaf20">
                                 <label for="bbqsaf20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -291,11 +291,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Mushrooms Sliced Beef, Fries</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="radio" name="saf14" id="saf14">
+                                    <input type="radio" name="choice16" id="saf14">
                                     <label for="saf14">14"</label>
-                                    <input type="radio" name="saf20" id="saf20">
+                                    <input type="radio" name="choice16" id="saf20">
                                     <label for="saf20">20"</label>
-                                    <button>Add to order</button>
+                                    <button class="add">Add to order</button>
                                 </fieldset>
                                 </li>
                             </ul> 
@@ -306,11 +306,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Ranch, Tomatoes, Gyro Meat, Green Olives, Onions, Feta</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="gyro14" id="gyro14">
+                                <input type="radio" name="choice17" id="gyro14">
                                 <label for="gyro14">14"</label>
-                                <input type="radio" name="gyro20" id="gyro20">
+                                <input type="radio" name="choice18" id="gyro20">
                                 <label for="gyro20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -321,11 +321,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Hot Sauce, Garlic Butter, Chicken, Jalapenos, Bacon, Tortilla Chips and our Three cheese blend</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="quesa14" id="quesa14">
+                                <input type="radio" name="choice19" id="quesa14">
                                 <label for="quesa14">14"</label>
-                                <input type="radio" name="quesa20" id="quesa20">
+                                <input type="radio" name="choice19" id="quesa20">
                                 <label for="quesa20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -336,11 +336,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Ranch, Tomatoes, Canadian Bacon, Bacon, Oregano</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="club14" id="club14">
+                                <input type="radio" name="choice20" id="club14">
                                 <label for="club14">14"</label>
-                                <input type="radio" name="club20" id="club20">
+                                <input type="radio" name="choice20" id="club20">
                                 <label for="club20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -351,11 +351,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Blue Cheese, Ground Beef, Mushrooms, Onions, Bacon, Black Pepper</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="blackblue14" id="blackblue14">
+                                <input type="radio" name="choice21" id="blackblue14">
                                 <label for="blackblue14">14"</label>
-                                <input type="radio" name="blackblue20" id="blackblue20">
+                                <input type="radio" name="choice21" id="blackblue20">
                                 <label for="blackblue20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -366,11 +366,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Ranch, Sliced Beef, Green Peppers, Jalapenos, Mushrooms, Oregano</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="ranchero14" id="ranchero14">
+                                <input type="radio" name="choice22" id="ranchero14">
                                 <label for="ranchero14">14"</label>
-                                <input type="radio" name="ranchero20" id="ranchero20">
+                                <input type="radio" name="choice22" id="ranchero20">
                                 <label for="ranchero20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -381,11 +381,11 @@ if(!isset($_SESSION["name"])) {
                             <li>BBQ Sauce, Bacon, Pulled Pork, Jalapenos</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="radio" name="pork14" id="pork14">
+                                <input type="radio" name="choice23" id="pork14">
                                 <label for="pork14">14"</label>
-                                <input type="radio" name="pork20" id="pork20">
+                                <input type="radio" name="choice24" id="pork20">
                                 <label for="pork20">20"</label>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -396,14 +396,14 @@ if(!isset($_SESSION["name"])) {
                             <li><fieldset id="garlic-knots">
                                 <legend>Options</legend>
                                 <div id="sauces">
-                                    <input type="radio" name="ranch" id="ranch">
+                                    <input type="radio" name="choice25" id="ranch">
                                     <label for="ranch">Ranch</label>
-                                    <input type="radio" name="garlic-butter" id="garlic-butter">
+                                    <input type="radio" name="choice25" id="garlic-butter">
                                     <label for="garlic-butter">Garlic Butter</label>
-                                    <input type="radio" name="marinara" id="marinara">
+                                    <input type="radio" name="choice25" id="marinara">
                                     <label for="marinara">Marinara</label>
                                 </div>
-                                <button>Add to order</button>
+                                <button class="add">Add to order</button>
                             </fieldset>
                             </li>
                         </ul>
@@ -416,7 +416,7 @@ if(!isset($_SESSION["name"])) {
                                 <li>14" BBQ Pulled Pork</li>
                             </ul>
                             <legend><h2 class="menu-options">Your Order</h2></legend>
-                            <input type="submit" name="finish-order" id="finish-order" value="Finish">
+                            <input type="submit" name="choice" id="finish-order" value="Finish">
                         </fieldset>
                     </li>
                 </ul>
