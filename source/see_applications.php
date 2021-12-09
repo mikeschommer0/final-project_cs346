@@ -9,24 +9,6 @@ if(!isset($_SESSION["name"])) {
 if($_SESSION["userid"] > 1) {
     redirect('./homepage.php');
 }
-
-$_SESSION["flash"] = "";
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["user-to-delete"])) {
-        $idToBeDeleted = $_POST["user-to-delete"];
-        $idToBeDeleted = trim(htmlspecialchars($idToBeDeleted));
-    }
-    if($idToBeDeleted > 1) {
-        if(delete_user($idToBeDeleted)) {
-            $_SESSION["flash"] = "user $idToBeDeleted was deleted successfully";
-
-        } else {
-            $_SESSION["flash"] = "user $idToBeDeleted was not deleted";
-        }
-    } else {
-        $_SESSION["flash"] = "You cannot delete this user.";
-    } 
-} 
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../css/apply.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../css/manage.css">
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,35 +45,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </nav>
         <main>
-            <?php $users = get_users($_SESSION["userid"]); ?>
+            <?php $app_details = get_all_apps(); ?>
             <table>
                 <tr>
-                    <th>Id</th>
+                    <th>App Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
                     <th>Phone</th>
-                    <th>DOB</th>
+                    <th>Email</th>
                 </tr>
-                <?php foreach($users as $user) { ?>
+                <?php foreach($app_details as $info) { 
+                    $id = $info['app_id']; ?>
                 <tr>
-                    <td> <?= $user['id'] ?> </td>
-                    <td> <?= $user['first_name'] ?> </td>
-                    <td> <?= $user['last_name'] ?> </td>
-                    <td> <?= $user['username'] ?> </td>
-                    <td> <?= $user['email'] ?> </td>
-                    <td> <?= $user['phone'] ?> </td>
-                    <td> <?= $user['dob'] ?> </td>
+                    <td> <?= $info['app_id'] ?> </td>
+                    <td> <?= $info['first_name'] ?> </td>
+                    <td> <?= $info['last_name'] ?> </td>
+                    <td> <?= $info['phone'] ?> </td>
+                    <td> <?= $info['email'] ?> </td>
+                    <form action="detailed_app.php" method="POST">
+                        <input type="hidden" name="app_id" value="<?php echo $id; ?>">
+                        <td><button class="form-buttons" type="submit" id="view-app">View</button></td>
+                        <td><input class="form-buttons" type="submit" id="view-app" value="Delete"> </td>
+                    </form>
                 </tr>
                 <?php } ?>
             </table>
-            <form action="./seeusers.php" id="delete-user-form" method="POST">
-                <label for="user-to-delete">Choose an ID to delete</label>
-                <input type="text" id="user-to-delete" name="user-to-delete">
-                <input class="form-buttons" type="submit" id="delete-user">
-            </form>
-            <p><?= $_SESSION["flash"] ?></p>
         </main>
         <footer>
         <p>

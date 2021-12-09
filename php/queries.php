@@ -133,6 +133,66 @@ function insert_app_details($first, $last, $email, $phone, $dob, $address, $city
   }
 }
 
+function get_app_info($id) {
+  global $db;
+
+  try{
+  $query = "SELECT first_name, last_name, phone, email, dob, address, city, state FROM application_details WHERE app_id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  return $statement->fetchAll(PDO::FETCH_ASSOC);
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error getting an application.");
+  }
+}
+
+function get_app_questions($id) {
+  global $db;
+
+  try{
+  $query = "SELECT availability, experience, late_night, rate, hours, legality, felon, yes_felon FROM application_questions WHERE app_id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  return $statement->fetchAll(PDO::FETCH_ASSOC);
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error getting an application.");
+  }
+}
+
+function get_app_history($id) {
+  global $db;
+
+  try{
+  $query = "SELECT employer_name, start_date, end_date, supervisor_name, supervisor_number, title, past_rate, reason_for_leaving, additional_info FROM work_history WHERE app_id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  return $statement->fetchAll(PDO::FETCH_ASSOC);
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error getting an application.");
+  }
+}
+
+function get_all_apps() {
+    global $db;
+  
+    try{
+    $query = "SELECT app_id, first_name, last_name, phone, email, address FROM application_details";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      db_disconnect();
+      echo $e;
+      exit("Aborting: There was a database error getting all application details.");
+    }
+}
+
 function insert_app_questions($availability, $exp, $late_night, $rate, $hours, $legality, $felon, $if_felon) {
   global $db;
 
