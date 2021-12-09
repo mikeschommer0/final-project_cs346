@@ -17,11 +17,11 @@ if($_SESSION["userid"] > 1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../css/apply.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="../css/theme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -45,13 +45,13 @@ if($_SESSION["userid"] > 1) {
             <?php $users = get_users($_SESSION["userid"]); ?>
             <table>
                 <tr>
-                    <td>Id</td>
-                    <td>First Name</td>
-                    <td>Last Name</td>
-                    <td>Username</td>
-                    <td>Email</td>
-                    <td>Phone</td>
-                    <td>DOB</td>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>DOB</th>
                 </tr>
                 <?php foreach($users as $user) { ?>
                 <tr>
