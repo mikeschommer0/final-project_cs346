@@ -117,7 +117,7 @@
     if($isValidName && $isValidUsernamePassword && $isValidEmailPhone) {
         sanitize();
         dbInsertUser();
-        redirect_signup("../source/login.php", "Sign up successful! You may now log in.", $_POST['first-name-signup'], $_POST['last-name-signup'], $_POST['phone-signup'], $_POST['email-signup']);
+        redirect("../source/login.php", "Sign up successful! You may now log in.");
     } else {
         redirect("../source/error.php", $errorMessage);
     }

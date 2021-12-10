@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </nav>
         <main>
-            <?php $users = get_users($_SESSION["userid"]); ?>
+            <?php $users = get_users(); ?>
             <table>
                 <tr>
                     <th>Id</th>

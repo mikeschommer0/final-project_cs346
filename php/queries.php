@@ -41,13 +41,28 @@ function is_password_correct($username, $password) {
   }
 }
 
-function get_users($restricted_id) {
+function get_user_info($id) {
   global $db;
 
   try{
-  $query = "SELECT id, first_name, last_name, username, email, phone, dob FROM users WHERE id > ?";
+  $query = "SELECT first_name, last_name, username, email, phone FROM users WHERE id = ?";
   $statement = $db->prepare($query);
-  $statement->execute([$restricted_id]);
+  $statement->execute([$id]);
+  return $statement->fetch(PDO::FETCH_ASSOC);
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error getting all users.");
+  }
+}
+
+function get_users() {
+  global $db;
+
+  try{
+  $query = "SELECT id, first_name, last_name, username, email, phone, dob FROM users";
+  $statement = $db->prepare($query);
+  $statement->execute();
   return $statement->fetchAll(PDO::FETCH_ASSOC);
   } catch(PDOException $e) {
     db_disconnect();
@@ -256,7 +271,7 @@ function send_order($order_string, $quantity, $total_price, $first_name, $last_n
     return $orderSent;
   } catch (PDOException $e) {
       db_disconnect();
-      exit("Aborting: There was a database error when inserting app questions.");
+      exit("Aborting: There was a database error when inserting order.");
   }
 }
 
@@ -289,7 +304,7 @@ function delete_order($id) {
   } catch(PDOException $e) {
     db_disconnect();
     echo $e;
-    exit("Aborting: There was a database error deleting a order.");
+    exit("Aborting: There was a database error deleting an order.");
   }
 }
 ?>

@@ -16,7 +16,7 @@ include("../php/initialize.php");
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <title>Order Received!</title>
+    <title>Confirmation</title>
 </head>
 <body>
     <div id="wrapper">
@@ -53,7 +53,7 @@ include("../php/initialize.php");
                 $totalFourteens = substr_count($orderStr, '4');
                 $totalTwenties = substr_count($orderStr, '2');
                 $totalKnots = substr_count($orderStr, 'W/');
-                
+
                 $totalCost = ($fourteenPrice * $totalFourteens) + ($twentyPrice * $totalTwenties) + ($knotPrice * $totalKnots);
                 $totalCost = number_format($totalCost, 2, '.', '');
                 

@@ -15,6 +15,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($db_info[0]) {
     $_SESSION["name"] = $username;
     $_SESSION["userid"] = $db_info[1];
+
+    $userInfo = get_user_info($_SESSION["userid"]);
+    if(!empty($userInfo)) {
+        $_SESSION['fname'] = $userInfo['first_name'];
+        $_SESSION['lname'] = $userInfo['last_name'];
+        $_SESSION['email'] = $userInfo['email'];
+        $_SESSION['phone'] = $userInfo['phone'];
+    }
     redirect("./homepage.php", "Signed In!");
   } else {
     $loginFailed = TRUE;

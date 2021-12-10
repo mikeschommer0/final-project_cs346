@@ -40,8 +40,8 @@ include("../php/sessions.php");
             <div id ="homescreen-img"></div>
             <h1>We got your application :)</h1>
             <p class="about-us">
-            <?php if(isset($_SESSION["name"])) { ?>
-                Thank you <?php echo $_SESSION["name"]; ?> for choosing an interest in Polito's Pizza. We hope to contact you soon!
+            <?php if (isset($_SESSION["fname"])) { ?>
+                Thank you <?php echo $_SESSION["fname"]; ?> for choosing an interest in Polito's Pizza. We hope to contact you soon!
             <?php } else { ?>
                 Thank you for choosing an interest in Polito's Pizza. We hope to contact you soon!
             <?php } ?> 
