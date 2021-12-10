@@ -39,23 +39,23 @@ include("../php/sessions.php");
         <main> 
             <div id ="homescreen-img"></div>
             <h1>We got your order :)</h1>
-            <p class="about-us">
+            <ul>
             <?php if(isset($_SESSION["order"])) { 
                 foreach($_SESSION['order'] as $name => $value) {
                     if (is_array($value)) { ?>
-                        <p>
-                            <?php echo "{$name}: [" . implode(", ", $value) ."]"; ?>
-                        </p>
+                        <li>
+                            <?php echo "[" . implode(", ", $value) ."]"; ?>
+                        </li>
                     <?php } else { ?>
-                        <p>
-                            <?php echo "{$name}: " . trim(htmlspecialchars($value)); ?>
-                        </p>
+                        <li>
+                            <?php echo trim(htmlspecialchars($value)); ?>
+                        </li>
                     <?php }
                 } ?>
             <?php } else { ?>
-                Something went wrong! Try ordering again!
+               <p>Something went wrong! Try ordering again!</p>
             <?php } ?> 
-            </p>
+            </ul>
             <footer>
                 <p>
                     Disclaimer: This site is under development by Mike Schommer, a UW-Oshkosh 
