@@ -1,5 +1,16 @@
 <?php
+include("../php/database.php");
+include("../php/queries.php");
+include("../php/initialize.php");
 include("../php/sessions.php");
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
+    <?php
+    foreach($_POST as $name => $value) { ?>
+                <?php trim(htmlspecialchars($value)); ?> 
+    <?php } 
+    insert_comment($_POST['name-contact'],$_POST['phone-contact'],$_POST['email-contact'],$_POST['concerns']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +57,7 @@ include("../php/sessions.php");
             <a id="email-link" href="mailto:info@politospizza.com"><h2>info@politospizza.com</h2></a>
         </div>
 
-        <form action="../php/comments.php" method="POST">
+        <form action="./contact.php" method="POST">
             <div id="contact-forms">
                 <ul>
                     <li>
