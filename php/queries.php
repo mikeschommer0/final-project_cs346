@@ -259,5 +259,38 @@ function send_order($order_string, $quantity, $total_price, $first_name, $last_n
       exit("Aborting: There was a database error when inserting app questions.");
   }
 }
+
+function get_orders() {
+  global $db;
+
+  try{
+    $query = "SELECT ord_id, order_string, quantity, total_price, first_name, last_name, phone, email FROM orders";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+      db_disconnect();
+      echo $e;
+      exit("Aborting: There was a database error getting all order details.");
+    }
+}
+
+function delete_order($id) {
+  global $db;
+
+  $orderDeleted = false;
+  try{
+  $query = "DELETE FROM orders WHERE ord_id = ?";
+  $statement = $db->prepare($query);
+  $statement->execute([$id]);
+  $orderDeleted = true;
+
+  return $orderDeleted;
+  } catch(PDOException $e) {
+    db_disconnect();
+    echo $e;
+    exit("Aborting: There was a database error deleting a order.");
+  }
+}
 ?>
 

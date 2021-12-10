@@ -12,20 +12,13 @@ if($_SESSION["userid"] > 1) {
 
 $_SESSION["flash"] = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["user-to-delete"])) {
-        $idToBeDeleted = $_POST["user-to-delete"];
-        $idToBeDeleted = trim(htmlspecialchars($idToBeDeleted));
-    }
-    if($idToBeDeleted > 1) {
-        if(delete_user($idToBeDeleted)) {
-            $_SESSION["flash"] = "user $idToBeDeleted was deleted successfully";
+        $orderToBeDeleted = $_POST["delete-order"];
+        if(delete_order($orderToBeDeleted)) {
+            $_SESSION["flash"] = "Order $orderToBeDeleted was deleted successfully!";
 
         } else {
-            $_SESSION["flash"] = "user $idToBeDeleted was not deleted";
-        }
-    } else {
-        $_SESSION["flash"] = "You cannot delete this user.";
-    } 
+            $_SESSION["flash"] = "Order $orderToBeDeleted was not deleted!";
+        } 
 } 
 ?>
 
@@ -44,7 +37,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <!-- <script src="../javascript/manage.js" defer></script> -->
     <title>Users</title>
 </head>
 <body>
@@ -62,34 +54,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </nav>
         <main>
-            <?php $users = get_users($_SESSION["userid"]); ?>
+            <?php $orders = get_orders(); ?>
             <table>
                 <tr>
                     <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
+                    <th>Items</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>First</th>
+                    <th>Last</th>
                     <th>Phone</th>
-                    <th>DOB</th>
+                    <th>Email</th>
                 </tr>
-                <?php foreach($users as $user) { ?>
+                <?php foreach($orders as $order) { 
+                    $id = $order['ord_id'];    
+                ?>  
                 <tr>
-                    <td> <?= $user['id'] ?> </td>
-                    <td> <?= $user['first_name'] ?> </td>
-                    <td> <?= $user['last_name'] ?> </td>
-                    <td> <?= $user['username'] ?> </td>
-                    <td> <?= $user['email'] ?> </td>
-                    <td> <?= $user['phone'] ?> </td>
-                    <td> <?= $user['dob'] ?> </td>
+                    <td> <?= $order['ord_id'] ?> </td>
+                    <td> <?= $order['order_string'] ?> </td>
+                    <td> <?= $order['quantity'] ?> </td>
+                    <td> <?= $order['total_price'] ?> </td>
+                    <td> <?= $order['first_name'] ?> </td>
+                    <td> <?= $order['last_name'] ?> </td>
+                    <td> <?= $order['phone'] ?> </td>
+                    <td> <?= $order['email'] ?> </td>
+                    <form action="see_orders.php" method="POST">
+                        <input type="hidden" name="delete-order" value="<?php echo $id; ?>">
+                        <td><button class="form-buttons" type="submit" id="delete-order">Delete</button></td>
+                    </form>  
                 </tr>
                 <?php } ?>
             </table>
-            <form action="./seeusers.php" id="delete-user-form" method="POST">
-                <label for="user-to-delete">Choose an ID to delete</label>
-                <input type="text" id="user-to-delete" name="user-to-delete">
-                <input class="form-buttons" type="submit" id="delete-user">
-            </form>
             <p><?= $_SESSION["flash"] ?></p>
         </main>
         <footer>
