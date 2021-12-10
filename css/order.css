@@ -76,6 +76,7 @@ input[type="checkbox"]:checked {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
   }
 
   #sauces > input[type=radio] {

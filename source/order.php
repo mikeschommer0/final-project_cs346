@@ -3,15 +3,19 @@ include("../php/sessions.php");
 
 if(!isset($_SESSION["name"])) {
     redirect("./login.php");
-} else {
+}
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="choice"t" content="width=device-width, initial-scale=1.0">
-    <meta name="choice" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/order.css">
@@ -48,7 +52,7 @@ if(!isset($_SESSION["name"])) {
             </ul>
         </nav>
         <main>
-            <form action="">
+            <form action="order.php" method="POST">
             <div class="main-text">
                 <ul>
                   <li><h1 class="menu-topics">Our Classics</h1></li>
@@ -58,11 +62,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Sausage, Pepperoni, Mushrooms, Onions, Green Peppers</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice" value="14&quot; Supreme" id="choice-supreme14">
-                                <label for="supreme14">14"</label>
-                                <input type="checkbox" name="choice" value="20&quot; Supreme" id="choice-supreme20">
-                                <label for="supreme20">20"</label>
-                                <input type="submit" class="add" value="Add to Order">
+                                    <input type="checkbox" name="choice" value="14&quot; Supreme" id="choice-supreme14">
+                                    <label for="supreme14">14"</label>
+                                    <input type="checkbox" name="choice" value="20&quot; Supreme" id="choice-supreme20">
+                                    <label for="supreme20">20"</label>
+                                    <input type="submit" class="add" id="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -73,11 +77,11 @@ if(!isset($_SESSION["name"])) {
                             <li>BBQ Sauce, Chicken, Bacon, Onions</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice2" value="14&quot; BBQ Chicken" id="choice-bbqchicken14">
+                                <input type="checkbox" name="choice" value="14&quot; BBQ Chicken" id="choice-bbqchicken14">
                                 <label for="bbqchicken14">14"</label>
-                                <input type="checkbox" name="choice2" value="20&quot; BBQ Chicken" id="choice-bbqchicken20">
+                                <input type="checkbox" name="choice" value="20&quot; BBQ Chicken" id="choice-bbqchicken20">
                                 <label for="bbqchicken20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -88,11 +92,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Pepperoni, Canadian Bacon, Sausage, Bacon, Ground Beef</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice3" value="14&quot; Meat Amore" id="meatamore14">
+                                <input type="checkbox" name="choice" value="14&quot; Meat Amore" id="meatamore14">
                                 <label for="meatamore14">14"</label>
-                                <input type="checkbox" name="choice3" value="20&quot; Meat Amore" id="meatamore20">
+                                <input type="checkbox" name="choice" value="20&quot; Meat Amore" id="meatamore20">
                                 <label for="meatamore20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -103,11 +107,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Hot Sauce, Chicken, Onions</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice4" value="14&quot; Buffalo Chicken" id="buffalochicken14">
+                                <input type="checkbox" name="choice" value="14&quot; Buffalo Chicken" id="buffalochicken14">
                                 <label for="buffalochicken14">14"</label>
-                                <input type="checkbox" name="choice4" value="20&quot; Buffalo Chicken" id="buffalochicken20">
+                                <input type="checkbox" name="choice" value="20&quot; Buffalo Chicken" id="buffalochicken20">
                                 <label for="buffalochicken20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -118,11 +122,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Ranch, Chicken, Bacon</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice5" value="14&quot; Chicken Bacon Ranch" id="cbr14">
+                                <input type="checkbox" name="choice" value="14&quot; Chicken Bacon Ranch" id="cbr14">
                                 <label for="cbr14">14"</label>
-                                <input type="checkbox" name="choice5" value="20&quot; Chicken Bacon Ranch" id="cbr20">
+                                <input type="checkbox" name="choice" value="20&quot; Chicken Bacon Ranch" id="cbr20">
                                 <label for="cbr20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -133,11 +137,11 @@ if(!isset($_SESSION["name"])) {
                             <li>BBQ Sauce, Canadian Bacon, Pineapple</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice6" value="14&quot; Hawaiian" id="hawaiian14">
+                                <input type="checkbox" name="choice" value="14&quot; Hawaiian" id="hawaiian14">
                                 <label for="hawaiian14">14"</label>
-                                <input type="checkbox" name="choice6" value="20&quot; Hawaiian" id="hawaiian20">
+                                <input type="checkbox" name="choice" value="20&quot; Hawaiian" id="hawaiian20">
                                 <label for="hawaiian20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -148,11 +152,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Chicken and Basil</li>
                             <li><fieldset id="chicken-parm">
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice7" value="14&quot; Chicken Parm" id="parm14">
+                                <input type="checkbox" name="choice" value="14&quot; Chicken Parm" id="parm14">
                                 <label for="parm14">14"</label>
-                                <input type="checkbox" name="choice7" value="20&quot; Chicken Parm" id="parm20">
+                                <input type="checkbox" name="choice" value="20&quot; Chicken Parm" id="parm20">
                                 <label for="parm20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -164,11 +168,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Garlic, Tomatoes, Mushrooms, Black Olives, Onions, Green Peppers</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="checkbox" name="choice8" value="14&quot; Vegetarian" id="veggie14">
+                                    <input type="checkbox" name="choice" value="14&quot; Vegetarian" id="veggie14">
                                     <label for="veggie14">14"</label>
-                                    <input type="checkbox" name="choice8" value="20&quot; Vegetarian" id="veggie20">
+                                    <input type="checkbox" name="choice" value="20&quot; Vegetarian" id="veggie20">
                                     <label for="veggie20">20"</label>
-                                    <button class="add">Add to order</button>
+                                    <input type="submit" class="add" value="Add to Order">
                                 </fieldset>
                                 </li>
                             </ul>
@@ -179,11 +183,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Garlic, Tomatoes, Basil</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="checkbox" name="choice9" value="14&quot; Tomato Basil" id="basil14">
+                                    <input type="checkbox" name="choice" value="14&quot; Tomato Basil" id="basil14">
                                     <label for="basil14">14"</label>
-                                    <input type="checkbox" name="choice9" value="20&quot; Tomato Basil" id="basil20">
+                                    <input type="checkbox" name="choice" value="20&quot; Tomato Basil" id="basil20">
                                     <label for="basil20">20"</label>
-                                    <button class="add">Add to order</button>
+                                    <input type="submit" class="add" value="Add to Order">
                                 </fieldset>
                                 </li>
                             </ul>
@@ -194,11 +198,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Olive Oil, Garlic, Tomatoes, Black Olives, Spinach, Broccoli, Feta, Oregano</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="checkbox" name="choice10" value="14&quot; Florentine" id="florentine14">
+                                    <input type="checkbox" name="choice" value="14&quot; Florentine" id="florentine14">
                                     <label for="florentine14">14"</label>
-                                    <input type="checkbox" name="choice10" value="20&quot; Florentine" id="florentine20">
+                                    <input type="checkbox" name="choice" value="20&quot; Florentine" id="florentine20">
                                     <label for="florentine20">20"</label>
-                                    <button class="add">Add to order</button>
+                                    <input type="submit" class="add" value="Add to Order">
                                 </fieldset>
                                 </li>
                             </ul>
@@ -209,11 +213,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Garlic, Tomatoes, Spinach, Feta</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="checkbox" name="choice11" value="14&quot; Spinach Feta" id="spinach14">
+                                    <input type="checkbox" name="choice" value="14&quot; Spinach Feta" id="spinach14">
                                     <label for="spinach14">14"</label>
-                                    <input type="checkbox" name="choice11" value="20&quot; Spinach Feta" id="spinach20">
+                                    <input type="checkbox" name="choice" value="20&quot; Spinach Feta" id="spinach20">
                                     <label for="spinach20">20"</label>
-                                    <button class="add">Add to order</button>
+                                    <input type="submit" class="add" value="Add to Order">
                                 </fieldset>
                                 </li>
                             </ul>
@@ -224,11 +228,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Garlic, Tomatoes, Green and Black Olives, Spinach, Feta</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="checkbox" name="choice12" value="14&quot; Greek" id="greek14">
+                                    <input type="checkbox" name="choice" value="14&quot; Greek" id="greek14">
                                     <label for="greek14">14"</label>
-                                    <input type="checkbox" name="choice12" value="20&quot; Greek" id="greek20">
+                                    <input type="checkbox" name="choice" value="20&quot; Greek" id="greek20">
                                     <label for="greek20">20"</label>
-                                    <button class="add">Add to order</button>
+                                    <input type="submit" class="add" value="Add to Order">
                                 </fieldset>
                                 </li>
                             </ul>
@@ -239,11 +243,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Mac noodles and our three cheese blend</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="checkbox" name="choice13" value="14&quot; Mac and Cheese" id="mac14">
+                                    <input type="checkbox" name="choice" value="14&quot; Mac and Cheese" id="mac14">
                                     <label for="mac14">14"</label>
-                                    <input type="checkbox" name="choice13" value="20&quot; Mac and Cheese" id="mac20">
+                                    <input type="checkbox" name="choice" value="20&quot; Mac and Cheese" id="mac20">
                                     <label for="mac20">20"</label>
-                                    <button class="add">Add to order</button>
+                                    <input type="submit" class="add" value="Add to Order">
                                 </fieldset>
                                 </li>
                             </ul>
@@ -261,11 +265,11 @@ if(!isset($_SESSION["name"])) {
                                     <li>Sliced Beef, Green Peppers, Onions, Mushrooms and our Three Cheese Blend</li>
                                     <li><fieldset>
                                         <legend>Options</legend>
-                                        <input type="checkbox" name="choice14" value="14&quot; Philly Cheese Steak" id="philly14">
+                                        <input type="checkbox" name="choice" value="14&quot; Philly Cheese Steak" id="philly14">
                                         <label for="philly14">14"</label>
-                                        <input type="checkbox" name="choice14" value="20&quot; Philly Cheese Steak" id="philly20">
+                                        <input type="checkbox" name="choice" value="20&quot; Philly Cheese Steak" id="philly20">
                                         <label for="philly20">20"</label>
-                                        <button class="add">Add to order</button>
+                                        <input type="submit" class="add" value="Add to Order">
                                     </fieldset>
                                     </li>
                         </ul>
@@ -276,11 +280,11 @@ if(!isset($_SESSION["name"])) {
                             <li>BBQ Sauce, Sliced Beef, Fries and our Three Cheese Blend</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice15" value="14&quot; BBQ Steak and Fry" id="bbqsaf14">
+                                <input type="checkbox" name="choice" value="14&quot; BBQ Steak and Fry" id="bbqsaf14">
                                 <label for="bbqsaf14">14"</label>
-                                <input type="checkbox" name="choice15" value="20&quot; BBQ Steak and Fry" id="bbqsaf20">
+                                <input type="checkbox" name="choice" value="20&quot; BBQ Steak and Fry" id="bbqsaf20">
                                 <label for="bbqsaf20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -291,11 +295,11 @@ if(!isset($_SESSION["name"])) {
                                 <li>Mushrooms Sliced Beef, Fries</li>
                                 <li><fieldset>
                                     <legend>Options</legend>
-                                    <input type="checkbox" name="choice16" value="14&quot; Steak and Fry" id="saf14">
+                                    <input type="checkbox" name="choice" value="14&quot; Steak and Fry" id="saf14">
                                     <label for="saf14">14"</label>
-                                    <input type="checkbox" name="choice16" value="20&quot; Steak and Fry" id="saf20">
+                                    <input type="checkbox" name="choice" value="20&quot; Steak and Fry" id="saf20">
                                     <label for="saf20">20"</label>
-                                    <button class="add">Add to order</button>
+                                    <input type="submit" class="add" value="Add to Order">
                                 </fieldset>
                                 </li>
                             </ul> 
@@ -306,11 +310,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Ranch, Tomatoes, Gyro Meat, Green Olives, Onions, Feta</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice17" value="14&quot; Gyro" id="gyro14">
+                                <input type="checkbox" name="choice" value="14&quot; Gyro" id="gyro14">
                                 <label for="gyro14">14"</label>
-                                <input type="checkbox" name="choice18" value="20&quot; Gryo" id="gyro20">
+                                <input type="checkbox" name="choice" value="20&quot; Gryo" id="gyro20">
                                 <label for="gyro20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -321,11 +325,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Hot Sauce, Garlic Butter, Chicken, Jalapenos, Bacon, Tortilla Chips and our Three cheese blend</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice19" value="14&quot; Chicken Quesadilla" id="quesa14">
+                                <input type="checkbox" name="choice" value="14&quot; Chicken Quesadilla" id="quesa14">
                                 <label for="quesa14">14"</label>
-                                <input type="checkbox" name="choice19" value="20&quot; Chicken Quesadilla" id="quesa20">
+                                <input type="checkbox" name="choice" value="20&quot; Chicken Quesadilla" id="quesa20">
                                 <label for="quesa20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -336,11 +340,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Ranch, Tomatoes, Canadian Bacon, Bacon, Oregano</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice20" value="14&quot; The Club" id="club14">
+                                <input type="checkbox" name="choice" value="14&quot; The Club" id="club14">
                                 <label for="club14">14"</label>
-                                <input type="checkbox" name="choice20" value="20&quot; The Club" id="club20">
+                                <input type="checkbox" name="choice" value="20&quot; The Club" id="club20">
                                 <label for="club20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -351,11 +355,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Blue Cheese, Ground Beef, Mushrooms, Onions, Bacon, Black Pepper</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice21" value="14&quot; Black &amp; Blue Burger" id="blackblue14">
+                                <input type="checkbox" name="choice" value="14&quot; Black &amp; Blue Burger" id="blackblue14">
                                 <label for="blackblue14">14"</label>
-                                <input type="checkbox" name="choice21" value="20&quot; Black &amp; Blue Burger" id="blackblue20">
+                                <input type="checkbox" name="choice" value="20&quot; Black &amp; Blue Burger" id="blackblue20">
                                 <label for="blackblue20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -366,11 +370,11 @@ if(!isset($_SESSION["name"])) {
                             <li>Ranch, Sliced Beef, Green Peppers, Jalapenos, Mushrooms, Oregano</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice22" value="14&quot; Steak Ranchero" id="ranchero14">
+                                <input type="checkbox" name="choice" value="14&quot; Steak Ranchero" id="ranchero14">
                                 <label for="ranchero14">14"</label>
-                                <input type="checkbox" name="choice22" value="20&quot; Steak Ranchero" id="ranchero20">
+                                <input type="checkbox" name="choice" value="20&quot; Steak Ranchero" id="ranchero20">
                                 <label for="ranchero20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -381,11 +385,11 @@ if(!isset($_SESSION["name"])) {
                             <li>BBQ Sauce, Bacon, Pulled Pork, Jalapenos</li>
                             <li><fieldset>
                                 <legend>Options</legend>
-                                <input type="checkbox" name="choice23" value="14&quot; BBQ Pulled Pork" id="pork14">
+                                <input type="checkbox" name="choice" value="14&quot; BBQ Pulled Pork" id="pork14">
                                 <label for="pork14">14"</label>
-                                <input type="checkbox" name="choice24" value="20&quot; BBQ Pulled Pork" id="pork20">
+                                <input type="checkbox" name="choice" value="20&quot; BBQ Pulled Pork" id="pork20">
                                 <label for="pork20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -396,14 +400,14 @@ if(!isset($_SESSION["name"])) {
                             <li><fieldset id="garlic-knots">
                                 <legend>Options</legend>
                                 <div id="sauces">
-                                    <input type="checkbox" name="choice25" value="Garlic Knots W/Ranch" id="ranch">
+                                    <input type="checkbox" name="choice" value="Garlic Knots W/Ranch" id="ranch">
                                     <label for="ranch">Ranch</label>
-                                    <input type="checkbox" name="choice25" value="Garlic Knots W/Garlic Butter" id="garlic-butter">
+                                    <input type="checkbox" name="choice" value="Garlic Knots W/Garlic Butter" id="garlic-butter">
                                     <label for="garlic-butter">Garlic Butter</label>
-                                    <input type="checkbox" name="choice25" value="Garlic Knots W/Marinara" id="marinara">
+                                    <input type="checkbox" name="choice" value="Garlic Knots W/Marinara" id="marinara">
                                     <label for="marinara">Marinara</label>
                                 </div>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
@@ -414,7 +418,7 @@ if(!isset($_SESSION["name"])) {
                                 
                             </ul>
                             <legend><h2 class="menu-options">Your Order</h2></legend>
-                            <input type="submit" name="choice" id="finish-order" value="Finish">
+                            <input type="submit" name="finish-order" id="finish-order" value="Finish">
                         </fieldset>
                     </li>
                 </ul>
@@ -433,5 +437,3 @@ if(!isset($_SESSION["name"])) {
     </div>
 </body>
 </html>
-
-<?php } ?>
