@@ -11,7 +11,10 @@ function getPizzas(e) {
     addPizza.forEach((pizza) => {
         selectedPizzas.push(pizza.value);
     });
-    alert(selectedPizzas);
+    addPizza.forEach((pizza) => {
+        pizza.checked=false;
+    });
+    selectedPizzas.sort();
     e.preventDefault();
 }
 function addToOrder() {

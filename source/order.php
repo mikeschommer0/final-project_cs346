@@ -62,7 +62,7 @@ if(!isset($_SESSION["name"])) {
                                 <label for="supreme14">14"</label>
                                 <input type="checkbox" name="choice" value="20&quot; Supreme" id="choice-supreme20">
                                 <label for="supreme20">20"</label>
-                                <button class="add">Add to order</button>
+                                <input type="submit" class="add" value="Add to Order">
                             </fieldset>
                             </li>
                         </ul>
