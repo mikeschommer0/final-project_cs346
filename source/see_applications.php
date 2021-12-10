@@ -52,6 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="./homepage.php"><span class="link-icon"></span>Home</a></li> 
                 <li><a href="./order.php"><span class="link-icon"></span>Order Online</a></li>
                 <li><a href="./manage.php"><span class="link-icon"></span>Manage</a></li>
+                <li><a href="./changeinfo.php"><span class="link-icon"></span> <?php echo $_SESSION['fname']; ?></a></li>
             </ul>
         </nav>
         <main>
