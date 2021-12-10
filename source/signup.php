@@ -74,7 +74,7 @@ include("../php/sessions.php");
                     </div>
                     <li>
                         <label for="password-signup2">Re-enter Password:</label>
-                        <input type="password" name="password-signup2" id="password-signup2" value="12345678Bb" minlength="10" required>
+                        <input type="password" name="password-signup2" id="password-signup2" value="12345678Bb" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
                     </li>
                     <li>
                         <label for="dob-signup">Birthday:</label>

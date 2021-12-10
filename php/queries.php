@@ -16,6 +16,38 @@ function insert_user($first_name, $last_name, $username, $email, $phone, $passwo
   return $success;
 }
 
+function edit_userNOPW($id, $first_name, $last_name, $username, $email, $phone) {
+  global $db;
+  $success = FALSE;
+  try {
+    $query = "UPDATE users SET first_name=?, last_name=?, username=?, email=?, phone=? WHERE id=?";
+    $stmt = $db->prepare($query);
+    $stmt->execute([$first_name, $last_name, $username, $email, $phone, $id]);
+    $success = TRUE;
+  } catch (PDOException $e) {
+      db_disconnect();
+      echo $e;
+      exit("Aborting: There was a database error when edit a user.");
+  }
+  return $success;
+}
+
+function edit_userPW($id, $first_name, $last_name, $username, $email, $phone, $password) {
+  global $db;
+  $success = FALSE;
+  try {
+    $query = "UPDATE users SET first_name=?, last_name=?, username=?, email=?, phone=?, password=? WHERE id=?";
+    $stmt = $db->prepare($query);
+    $stmt->execute([$first_name, $last_name, $username, $email, $phone, crypt($password), $id]);
+    $success = TRUE;
+  } catch (PDOException $e) {
+      db_disconnect();
+      echo $e;
+      exit("Aborting: There was a database error when edit a user.");
+  }
+  return $success;
+}
+
 function is_password_correct($username, $password) {
   global $db;
   $password_correct = FALSE;

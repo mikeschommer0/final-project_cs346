@@ -1,9 +1,14 @@
 <?php
 include("../php/sessions.php");
+include("../php/database.php");
+include("../php/queries.php");
+include("../php/initialize.php");
 
 if(!isset($_SESSION["name"])) {
     redirect('./homepage.php');
-} ?>
+} 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,31 +58,34 @@ if(!isset($_SESSION["name"])) {
         <main>
             <fieldset>
                 <legend>Change Details</legend>
-                <form action="" method="POST">
+                <form action="../php/info_change.php" method="POST">
                     <ul>
                         <li>
+                            <input type="hidden" name="user-id" value="<?= $_SESSION['userid'] ?>">
+                        </li>
+                        <li>
                             <label for="first-name-account">First Name:</label>
-                            <input type="text" name="first-name-account" id="first-name-account" value="">
+                            <input type="text" name="first-name-account" id="first-name-account" value="<?= $_SESSION['fname'] ?>" required>
                         </li>
                         <li>
                             <label for="last-name-account">Last Name:</label>
-                            <input type="text" name="last-name-account" id="last-name-account" value="">
+                            <input type="text" name="last-name-account" id="last-name-account" value="<?= $_SESSION['lname'] ?>" required>
                         </li>
                         <li>
                             <label for="username-account">Username:</label>
-                            <input type="text" name="username-account" id="username-account" value="">
+                            <input type="text" name="username-account" id="username-account" value="<?= $_SESSION['name'] ?>" required>
                         </li>
                         <li>
                             <label for="email-account">Email:</label>
-                            <input type="email" name="email-account" id="email-account" value="">
+                            <input type="email" name="email-account" id="email-account" value="<?= $_SESSION['email'] ?>" required>
                         </li>
                         <li>
                             <label for="phone-account">Phone number:</label>
-                            <input type="phone-account" name="phone-account" id="phone-account" value="">
+                            <input type="phone-account" name="phone-account" id="phone-account" value="<?= $_SESSION['phone'] ?>" required>
                         </li>
                         <li>
                             <label for="password-signup">Change Password:</label>
-                            <input type="password" name="password-signup" id="password-signup" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}">
+                            <input type="password" name="password-account" id="password-account" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}">
                         </li> 
                         <div id="password-message">
                             <h1>Password requirements:</h1>
@@ -88,12 +96,8 @@ if(!isset($_SESSION["name"])) {
                         </div>
                         <li>
                             <label for="password-account2">Re-enter Password:</label>
-                            <input type="password" name="password-account2" id="password-account2" value="" minlength="10">
-                        </li>
-                        <li>
-                            <label for="dob-account">Birthday:</label>
-                            <input type="date" name="dob-account" id="dob-account">
-                        </li>
+                            <input type="password" name="password-account2" id="password-account2" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}">
+                        </li>                        
                     </ul>
                     <input id="change-info-submit" class="form-buttons" type="submit" value="Submit"/>
                     
