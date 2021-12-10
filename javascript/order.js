@@ -5,6 +5,22 @@ for (let i = 0; i < add; i++) {
     document.querySelectorAll(".add")[i].addEventListener('click', addToOrder);
 }
 
+submit.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let jsonString = JSON.stringify(allPizzas);
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "../source/order.php");
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(jsonString);
+
+    let a= document.createElement('a');
+    a.target= '_blank';
+    a.href= 'https://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/source/thanks_order.php';
+    a.click();
+});
+
 let selectedPizzas = [];
 let allPizzas = [];
 function getPizzas(e) {
