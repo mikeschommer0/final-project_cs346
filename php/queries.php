@@ -242,5 +242,22 @@ function insert_app_history($employer_name, $start_date, $end_date, $supervisor_
       exit("Aborting: There was a database error when inserting app history.");
   }
 }
+/////////////////////////////////////ORDERS/////////////////////////////////////////////////////////////////////////
+
+function send_order($order_string, $quantity, $total_price, $first_name, $last_name, $phone, $email) {
+  global $db;
+
+  $orderSent = FALSE;
+  try {
+    $query = "INSERT INTO orders(order_string, quantity, total_price, first_name, last_name, phone, email) VALUES (?,?,?,?,?,?,?)";
+    $stmt = $db->prepare($query);
+    $stmt->execute([$order_string, $quantity, $total_price, $first_name, $last_name, $phone, $email]);
+    $orderSent = TRUE;
+    return $orderSent;
+  } catch (PDOException $e) {
+      db_disconnect();
+      exit("Aborting: There was a database error when inserting app questions.");
+  }
+}
 ?>
 

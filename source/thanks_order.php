@@ -1,5 +1,8 @@
 <?php
 include("../php/sessions.php");
+include("../php/database.php");
+include("../php/queries.php");
+include("../php/initialize.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,23 +41,34 @@ include("../php/sessions.php");
         </nav>
         <main> 
             <div id ="homescreen-img"></div>
-            <h1>We got your order :)</h1>
-            <ul>
-            <?php if(isset($_SESSION["order"])) { 
-                foreach($_SESSION['order'] as $name => $value) {
-                    if (is_array($value)) { ?>
+            <?php if(isset($_SESSION['order'])) {
+                $orderStr = implode(', ',$_SESSION['order']);
+                $orderQuantity = count($_SESSION['order']);
+                $orderArr = $_SESSION['order'];
+
+                $fourteenPrice = 18.75;
+                $twentyPrice = 24.50;
+                $knotPrice = 5.00;
+                $totalFourteens = substr_count($orderStr, '4');
+                $totalTwenties = substr_count($orderStr, '2');
+                $totalKnots = substr_count($orderStr, 'W/');
+                $totalCost = ($fourteenPrice * $totalFourteens) + ($twentyPrice * $totalTwenties) + ($knotPrice * $totalKnots);
+                
+                if(send_order($orderStr, $orderQuantity, $totalCost, $_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'])) { ?>
+                    <h1>Thank you <?php echo $_SESSION['fname']; ?>! We got your order :)</h1>
+                    <ul>
+             <?php foreach($orderArr as $key => $value) { ?>
                         <li>
-                            <?php echo "[" . implode(", ", $value) ."]"; ?>
+                            <?php  echo $value; ?>
                         </li>
-                    <?php } else { ?>
-                        <li>
-                            <?php echo trim(htmlspecialchars($value)); ?>
-                        </li>
-                    <?php }
-                } ?>
+            <?php   } ?>
+                    </ul>
+                        <h1>Price: $<?php echo $totalCost ?></h1>   
             <?php } else { ?>
-               <p>Something went wrong! Try ordering again!</p>
-            <?php } ?> 
+                <h1>Oops! :(</h1>
+                <p>Something went wrong! Try ordering again!</p>
+          <?php }
+          } ?> 
             </ul>
             <footer>
                 <p>

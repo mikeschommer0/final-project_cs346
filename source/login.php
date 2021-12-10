@@ -5,6 +5,8 @@ include("../php/initialize.php");
 include("../php/sessions.php");
 
 $loginFailed = FALSE;
+
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST["username-login"];
   $password = $_POST["password-login"];
