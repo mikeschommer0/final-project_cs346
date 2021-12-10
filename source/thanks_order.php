@@ -49,10 +49,13 @@ include("../php/initialize.php");
                 $fourteenPrice = 18.75;
                 $twentyPrice = 24.50;
                 $knotPrice = 5.00;
+
                 $totalFourteens = substr_count($orderStr, '4');
                 $totalTwenties = substr_count($orderStr, '2');
                 $totalKnots = substr_count($orderStr, 'W/');
+                
                 $totalCost = ($fourteenPrice * $totalFourteens) + ($twentyPrice * $totalTwenties) + ($knotPrice * $totalKnots);
+                $totalCost = number_format($totalCost, 2, '.', '');
                 
                 if(send_order($orderStr, $orderQuantity, $totalCost, $_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'])) { ?>
                     <h1>Thank you <?php echo $_SESSION['fname']; ?>! We got your order :)</h1>

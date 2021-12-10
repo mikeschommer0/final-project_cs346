@@ -7,7 +7,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $payload = file_get_contents("php://input");
     $pizzaList = json_decode($payload, true);
     $_SESSION['order'] = $pizzaList;
-    redirect("./thanks_order.php");
 }
 ?>
 
