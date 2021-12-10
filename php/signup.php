@@ -44,16 +44,16 @@
 
             if(!empty($_POST["password-signup"]) && isset($_POST["password-signup"])){
                 if (strlen($_POST["password-signup"]) < '10') {
-                    $errorMessage =  "Your password-signup Must Contain At Least 10 Digits!";
+                    $errorMessage =  "Your Password Must Contain At Least 10 Digits!";
                     $validField = false;
                 } elseif(!preg_match("#[0-9]+#", $_POST["password-signup"])) {
-                    $errorMessage =  "Your password-signup Must Contain At Least 1 Number!";
+                    $errorMessage =  "Your Password Must Contain At Least 1 Number!";
                     $validField = false;
                 } elseif(!preg_match("#[A-Z]+#", $_POST["password-signup"])) {
-                    $errorMessage =  "Your password-signup Must Contain At Least 1 Capital Letter!";
+                    $errorMessage =  "Your Password Must Contain At Least 1 Capital Letter!";
                    $validField = false;
                 } elseif(!preg_match("#[a-z]+#", $_POST["password-signup"])) {
-                    $errorMessage =  "Your password-signup Must Contain At Least 1 Lowercase Letter!";
+                    $errorMessage =  "Your Password Must Contain At Least 1 Lowercase Letter!";
                     $validField = false;
                 } elseif($_POST["password-signup"] != $_POST["password-signup2"]) {
                     $errorMessage =  "Password does not match!";

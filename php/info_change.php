@@ -42,17 +42,25 @@
                $validField = false;
             }
 
-            if(!empty($_POST["password-account"])){
-                   if(!preg_match("#[0-9]+#", $_POST["password-account"])) {
-                    $errorMessage =  "Your password-account Must Contain At Least 1 Number!";
+            if($_POST['password-signup'] == $_POST['password-old']) {
+                $errorMessage = "New Password Cannot Be The Same As Old";
+            }
+
+            if(empty($_POST['password-old'])) {
+                $errorMessage = "Current Password Left Blank";
+            }
+
+            if(!empty($_POST["password-signup"])){
+                   if(!preg_match("#[0-9]+#", $_POST["password-signup"])) {
+                    $errorMessage =  "Your Password Must Contain At Least 1 Number!";
                     $validField = false;
-                } elseif(!preg_match("#[A-Z]+#", $_POST["password-account"])) {
-                    $errorMessage =  "Your password-account Must Contain At Least 1 Capital Letter!";
+                } elseif(!preg_match("#[A-Z]+#", $_POST["password-signup"])) {
+                    $errorMessage =  "Your Password Must Contain At Least 1 Capital Letter!";
                    $validField = false;
-                } elseif(!preg_match("#[a-z]+#", $_POST["password-account"])) {
-                    $errorMessage =  "Your password-account Must Contain At Least 1 Lowercase Letter!";
+                } elseif(!preg_match("#[a-z]+#", $_POST["password-signup"])) {
+                    $errorMessage =  "Your Password Must Contain At Least 1 Lowercase Letter!";
                     $validField = false;
-                } elseif($_POST["password-account"] != $_POST["password-account2"]) {
+                } elseif($_POST["password-signup"] != $_POST["password-signup2"]) {
                     $errorMessage =  "Password does not match!";
                     $validField = false;
                 } else {
@@ -109,18 +117,26 @@
 
     if($isValidName && $isValidUsernamePassword && $isValidEmailPhone) {
         sanitize();
-        if(empty($_POST['password'])) {
-            if(edit_userNOPW($_POST['user-id'], $_POST['first-name-account'],$_POST['last-name-account'],$_POST['username-account'], $_POST['email-account'], $_POST['phone-account'])) {
-                redirect("../source/login.php", "Information Changed! Please login again.");
+
+        if(is_password_correctChange($_POST['user-id'], $_POST['password-old'])) {
+            if(empty($_POST['password-signup'])) {
+                if(edit_userNOPW($_POST['user-id'], $_POST['first-name-account'],$_POST['last-name-account'],$_POST['username-account'], $_POST['email-account'], $_POST['phone-account'])) {
+                    redirect("../source/login.php", "Information Changed! Please login again.");
+                } else {
+                    $errorMessage = "Error Changing Information.";
+                    redirect("../source/login.php", $errorMessage);
+                }
             } else {
-                redirect("../source/login.php", $errorMessage);
+                if(edit_userPW($_POST['user-id'], $_POST['first-name-account'],$_POST['last-name-account'],$_POST['username-account'], $_POST['email-account'], $_POST['phone-account'], $_POST['password-signup'])) {
+                    redirect("../source/login.php", "Information Changed! Please login again.");
+                } else {
+                    $errorMessage = "Error Changing Information.";
+                    redirect("../source/login.php", $errorMessage);
+                }
             }
         } else {
-            if(edit_userPW($_POST['user-id'], $_POST['first-name-account'],$_POST['last-name-account'],$_POST['username-account'], $_POST['email-account'], $_POST['phone-account'], $_POST['password-account'])) {
-                redirect("../source/login.php", "Information Changed! Please login again.");
-            } else {
-                redirect("../source/login.php", $errorMessage);
-            }
+            $errorMessage = "Invalid Email/Password";
+            redirect("../source/changeinfo.php", $errorMessage);
         }
     }
 }

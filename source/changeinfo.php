@@ -84,8 +84,12 @@ if(!isset($_SESSION["name"])) {
                             <input type="phone-account" name="phone-account" id="phone-account" value="<?= $_SESSION['phone'] ?>" required>
                         </li>
                         <li>
+                            <label for="password-old">Current Password:</label>
+                            <input type="password" name="password-old" id="password-old" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required> 
+                        </li> 
+                        <li>
                             <label for="password-signup">Change Password:</label>
-                            <input type="password" name="password-account" id="password-account" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}">
+                            <input type="password" name="password-signup" id="password-signup" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}">
                         </li> 
                         <div id="password-message">
                             <h1>Password requirements:</h1>
@@ -95,8 +99,8 @@ if(!isset($_SESSION["name"])) {
                             <p id="password-length" class="invalid">A minimum of 10 characters</p>
                         </div>
                         <li>
-                            <label for="password-account2">Re-enter Password:</label>
-                            <input type="password" name="password-account2" id="password-account2" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}">
+                            <label for="password-signup2">Re-enter Password:</label>
+                            <input type="password" name="password-signup2" id="password-signup2" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}">
                         </li>                        
                     </ul>
                     <input id="change-info-submit" class="form-buttons" type="submit" value="Submit"/>
