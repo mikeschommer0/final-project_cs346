@@ -15,10 +15,8 @@ submit.addEventListener('click', function(e) {
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(jsonString);
 
-    let a= document.createElement('a');
-    a.target= '_blank';
-    a.href= 'https://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/source/thanks_order.php';
-    a.click();
+
+    window.location.replace("https://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/source/thanks_order.php"); 
 });
 
 let selectedPizzas = [];
