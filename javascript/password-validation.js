@@ -9,14 +9,17 @@ let capital = document.getElementById("password-ucletter");
 let number = document.getElementById("password-number");
 let length = document.getElementById("password-length");
 
+//when password box is focused, show password display
 function showBox() {
   document.getElementById('password-message').style.display = "block";
 }
 
+//when not in focus, hide password display
 function hideBox() {
   document.getElementById('password-message').style.display = "none";
 }
 
+//validation to show what the user typed is correct
 function validatePassword() {
   let validLCLetters = /[a-z]/g;
   if(this.value.match(validLCLetters)) {
