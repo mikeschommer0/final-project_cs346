@@ -16,7 +16,10 @@ submit.addEventListener('click', function(e) {
     xhr.send(jsonString);
 
 
-    window.location.replace("https://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/source/thanks_order.php"); 
+    let a= document.createElement('a');
+    a.target= '_blank';
+    a.href= 'https://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/source/thanks_order.php';
+    a.click();
 });
 
 let selectedPizzas = [];
