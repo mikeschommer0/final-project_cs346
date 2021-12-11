@@ -1,5 +1,8 @@
 let add = document.querySelectorAll(".add").length;
 let submit = document.getElementById('finish-order');
+let orderList = document.getElementById('order');
+let clear = document.getElementById('clear-order');
+
 for (let i = 0; i < add; i++) {
     document.querySelectorAll(".add")[i].addEventListener('click', getPizzas);
     document.querySelectorAll(".add")[i].addEventListener('click', addToOrder);
@@ -50,7 +53,6 @@ function getPizzas(e) {
     e.preventDefault();
 }
 function addToOrder() {
-let orderList = document.getElementById('order');
 let currentPrice = document.getElementById('current-price');
 let price = totalPrice.toFixed(2);
 
@@ -69,6 +71,13 @@ let splitPizzas = [];
 
     currentPrice.innerHTML = `Total: \$${price}`; 
     allPizzas.push(...splitPizzas);
-    console.log(allPizzas);
     selectedPizzas = [];
 }
+
+clear.addEventListener('click', function(e) {
+
+    while(orderList.firstChild && allPizzas.length) {
+        orderList.removeChild(orderList.firstChild);
+        allPizzas.pop();
+    }
+}); 

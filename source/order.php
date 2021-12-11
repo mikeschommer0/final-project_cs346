@@ -423,7 +423,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <li id="current-price">Total: &dollar;0.00</li>
                             </ul>
                             <legend><h2 class="menu-options">Your Order</h2></legend>
-                            <input type="submit" name="finish-order" id="finish-order" value="Finish">
+                            <div id="order-div">
+                                <input type="submit" name="finish-order" id="finish-order" value="Finish">
+                                <input type="submit" name="clear-order" id="clear-order" value="Clear">
+                            </div>
                         </fieldset>
                     </li>
                 </ul>
