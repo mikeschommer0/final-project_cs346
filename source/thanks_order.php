@@ -6,6 +6,14 @@ include("../php/initialize.php");
 
 if(!isset($_SESSION['name'])) {
     redirect('./homepage.php');
+
+}
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $payload = file_get_contents("php://input");
+    
+    $pizzaList = json_decode($payload, true);
+    $_SESSION['order'] = $pizzaList;
 }
 ?>
 <!DOCTYPE html>
@@ -17,9 +25,11 @@ if(!isset($_SESSION['name'])) {
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/homepage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="../javascript/order_confirmation.js" defer></script>
     <title>Confirmation</title>
 </head>
 <body>
@@ -29,20 +39,6 @@ if(!isset($_SESSION['name'])) {
             <h1 id="homepage-title"> Polito's Pizza - Oshkosh</h1>
             <img src="../images/politos-icon.png" alt="Polito's Mascot">
         </header>
-        <nav>
-            <ul class="nav-bar">
-                <li><a href="./homepage.php"><span class="link-icon"></span>Home</a></li>
-                <li><a href="./order.php"><span class="link-icon"></span>Order Online</a></li>
-                <li><a href="./apply.php"><span class="link-icon"></span>Apply</a></li>
-                <li><a href="./contact.php"><span class="link-icon"></span>Contact</a></li>
-                <li><a href=""><span class="link-icon"></span>About</a></li> 
-                <?php if(isset($_SESSION["name"])) { ?>
-                <li><a href="./changeinfo.php"><span class="link-icon"></span> <?php echo $_SESSION['fname']; ?></a></li>
-            <?php } else { ?>
-                <li><a href="./login.php"><span class="link-icon"></span>Login</a></li> 
-            <?php } ?> 
-            </ul>
-        </nav>
         <main> 
             <div id ="homescreen-img"></div>
             <?php if(isset($_SESSION['order'])) {
@@ -70,13 +66,13 @@ if(!isset($_SESSION['name'])) {
                         </li>
             <?php   } ?>
                     </ul>
-                        <h1>Price: $<?php echo $totalCost ?></h1>   
+                        <h1>Price: $<?php echo $totalCost ?></h1>
+                        <button type="button" id="ok-confirm">Okay</button>
             <?php } else { ?>
                 <h1>Oops! :(</h1>
                 <p>Something went wrong! Try ordering again!</p>
           <?php }
-          } ?> 
-            </ul>
+          } ?>
             <footer>
                 <p>
                     Disclaimer: This site is under development by Mike Schommer, a UW-Oshkosh 

@@ -14,15 +14,21 @@ submit.addEventListener('click', function(e) {
     let jsonString = JSON.stringify(allPizzas);
     let xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "../source/order.php");
+    xhr.open("POST", "../source/thanks_order.php", true);
     xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.status);
+        }
+    }
     xhr.send(jsonString);
-
 
     let a= document.createElement('a');
     a.target= '_blank';
     a.href= 'https://webdev.cs.uwosh.edu/students/schomm42/final-project_cs346/source/thanks_order.php';
     a.click();
+
+    window.close('','_parent','');
 });
 
 let selectedPizzas = [];
@@ -71,6 +77,7 @@ let splitPizzas = [];
 
     currentPrice.innerHTML = `Total: \$${price}`; 
     allPizzas.push(...splitPizzas);
+    console.log(allPizzas);
     selectedPizzas = [];
 }
 
