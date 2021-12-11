@@ -3,12 +3,6 @@ include("../php/sessions.php");
 if(!isset($_SESSION["name"])) {
     redirect("./login.php");
 }
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $payload = file_get_contents("php://input");
-    
-    $pizzaList = json_decode($payload, true);
-    $_SESSION['order'] = $pizzaList;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

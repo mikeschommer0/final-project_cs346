@@ -8,13 +8,12 @@ if(!isset($_SESSION['name'])) {
     redirect('./homepage.php');
 
 }
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $payload = file_get_contents("php://input");
-    
     $pizzaList = json_decode($payload, true);
     $_SESSION['order'] = $pizzaList;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,11 +67,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     </ul>
                         <h1>Price: $<?php echo $totalCost ?></h1>
                         <button type="button" id="ok-confirm">Okay</button>
-            <?php } else { ?>
+            <?php }
+            } else { ?>
                 <h1>Oops! :(</h1>
                 <p>Something went wrong! Try ordering again!</p>
-          <?php }
-          } ?>
+                <button type="button" id="ok-confirm">Okay</button>
+          <?php } ?>
             <footer>
                 <p>
                     Disclaimer: This site is under development by Mike Schommer, a UW-Oshkosh 

@@ -1,6 +1,8 @@
 <?php
 include("../php/sessions.php");
-
+    if(!empty($_SESSION['order'])) {
+        unset($_SESSION['order']);
+    }
 ?>
 
 <!DOCTYPE html>
