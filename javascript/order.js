@@ -24,10 +24,24 @@ submit.addEventListener('click', function(e) {
 
 let selectedPizzas = [];
 let allPizzas = [];
+let totalPrice = 0;
 function getPizzas(e) {
     const addPizza = document.querySelectorAll('input[type="checkbox"]:checked');
     addPizza.forEach((pizza) => {
-        selectedPizzas.push(pizza.value);
+        let listing = pizza.value;
+        let priceFourteen = listing.includes("14");
+        let priceTwenty =  listing.includes("20");
+        let priceKnots = listing.includes("W/");
+        if(priceFourteen) {
+            totalPrice += 18.75;
+        }
+        if(priceTwenty) {
+            totalPrice += 24.50;
+        }
+        if(priceKnots) {
+            totalPrice += 5.00;
+        }
+        selectedPizzas.push(listing);
     });
     addPizza.forEach((pizza) => {
         pizza.checked=false;
@@ -37,12 +51,24 @@ function getPizzas(e) {
 }
 function addToOrder() {
 let orderList = document.getElementById('order');
+let currentPrice = document.getElementById('current-price');
+let price = totalPrice.toFixed(2);
+
     for(let i = 0; i < selectedPizzas.length; i++) {
         listItem = document.createElement('li');
         listItem.innerHTML = selectedPizzas[i];
         orderList.appendChild(listItem);
     }
-    allPizzas.push(...selectedPizzas);
+
+let splitPizzas = [];
+    for(let i = 0; i < selectedPizzas.length; i++) {
+        let str = selectedPizzas[i];
+        let splitListing = str.split("$");
+        splitPizzas.push(splitListing[0]);
+    }
+
+    currentPrice.innerHTML = `Total: \$${price}`; 
+    allPizzas.push(...splitPizzas);
     console.log(allPizzas);
     selectedPizzas = [];
 }
