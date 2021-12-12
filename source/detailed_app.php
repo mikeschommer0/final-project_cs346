@@ -4,6 +4,7 @@ include("../php/database.php");
 include("../php/queries.php");
 include("../php/initialize.php");
 
+//prevents users/nonusers from accessing page unless they have permission
 if(!isset($_SESSION["name"])) {
     redirect('./homepage.php');
 }

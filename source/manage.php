@@ -1,5 +1,7 @@
 <?php
 include("../php/sessions.php");
+
+//prevents users/nonusers from accessing page unless they have permission
 if(!isset($_SESSION["name"])) {
     redirect('./homepage.php');
 }
