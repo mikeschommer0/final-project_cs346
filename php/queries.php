@@ -264,6 +264,7 @@ function get_all_apps() {
     }
 }
 
+//delete apps requires multiple queries. couldn't get foreign keys to work
 function delete_app($id) {
   global $db;
   $appDeleted = false;

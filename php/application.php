@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Form Testing</title>
+    <title>App Validation</title>
 </head>
 <body>
     <?php
@@ -84,6 +84,8 @@
         $felony = isset($_POST['yes-felony']) ? 1 : 0;
 
         insert_app_questions($availiablity, $exp, $weekend, $_POST['desired-rate'], $_POST['desired-hours'], $legality, $felony, $_POST['ifyes-felony']);
+        
+        //if they have work history, add it. not required on form
         if(isset($_POST['most-recent-employer'])) {
         insert_app_history($_POST['most-recent-employer'], $_POST['start-of-employment'], $_POST['end-of-employment'], $_POST['supervisor'], $_POST['supervisor-phone'], $_POST['responsiblities'], $_POST['rate'], $_POST['reason'], $_POST['additional-info']);
         }

@@ -119,14 +119,15 @@
         sanitize();
 
         if(is_password_correctChange($_POST['user-id'], $_POST['password-old'])) {
-            if(empty($_POST['password-signup'])) {
+            //if they enter a valid password for info change
+            if(empty($_POST['password-signup'])) { //if no password change, dont update password
                 if(edit_userNOPW($_POST['user-id'], $_POST['first-name-account'],$_POST['last-name-account'],$_POST['username-account'], $_POST['email-account'], $_POST['phone-account'])) {
                     redirect("../source/login.php", "Information Changed! Please login again.");
                 } else {
                     $errorMessage = "Error Changing Information.";
                     redirect("../source/login.php", $errorMessage);
                 }
-            } else {
+            } else { //otherwise update password
                 if(edit_userPW($_POST['user-id'], $_POST['first-name-account'],$_POST['last-name-account'],$_POST['username-account'], $_POST['email-account'], $_POST['phone-account'], $_POST['password-signup'])) {
                     redirect("../source/login.php", "Information Changed! Please login again.");
                 } else {
