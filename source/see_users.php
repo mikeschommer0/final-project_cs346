@@ -22,8 +22,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["flash"] = "Something went wrong! Try again.";
         }
     }   else {
-        $_SESSION["flash"] = "User $userToBeDeleted was not deleted!";
+        $_SESSION["flash"] = "User $userToBeDeleted cannot be deleted";
     }
+}
 
 ?>
 
