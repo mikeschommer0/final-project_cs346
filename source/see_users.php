@@ -15,13 +15,16 @@ if($_SESSION["userid"] > 1) {
 $_SESSION["flash"] = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $userToBeDeleted = $_POST["delete-user"];
-    if(delete_user($userToBeDeleted)) {
-        $_SESSION["flash"] = "User $userToBeDeleted was deleted successfully!";
-
-    } else {
+    if($userToBeDeleted > 1) {
+        if(delete_user($userToBeDeleted)) {
+            $_SESSION["flash"] = "User $userToBeDeleted was deleted successfully!";
+        } else {
+            $_SESSION["flash"] = "Something went wrong! Try again.";
+        }
+    }   else {
         $_SESSION["flash"] = "User $userToBeDeleted was not deleted!";
     }
-} 
+
 ?>
 
 <!DOCTYPE html>
