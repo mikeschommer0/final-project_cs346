@@ -4,6 +4,7 @@ include("../php/database.php");
 include("../php/queries.php");
 include("../php/initialize.php");
 
+//prevents unsigned in user from accessing page
 if(!isset($_SESSION["name"])) {
     redirect('./homepage.php');
 } 

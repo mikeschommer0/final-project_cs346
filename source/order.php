@@ -1,5 +1,7 @@
 <?php
 include("../php/sessions.php");
+
+//prevents unsigned in user from accessing page
 if(!isset($_SESSION["name"])) {
     redirect("./login.php");
 }
