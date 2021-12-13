@@ -45,11 +45,11 @@ include("../php/sessions.php");
                 <ul>
                     <li>
                         <label for="first-name-app">First name:</label>
-                        <input type="text" id="first-name-app" name="first-name-app" value="mike" required>
+                        <input type="text" id="first-name-app" name="first-name-app" required>
                     </li>
                     <li>
                         <label for="last-name-app">Last name:</label>
-                        <input type="text" id="last-name-app" name="last-name-app" value="schommer" required>
+                        <input type="text" id="last-name-app" name="last-name-app" required>
                     </li>
                     <li>
                         <label for="dob-app">Date Of Birth:</label>
@@ -57,25 +57,25 @@ include("../php/sessions.php");
                     </li>
                     <li>
                         <label for="address">Address:</label>
-                        <input type="text" id="address-app" name="address-app" value="123 Street St." required>
+                        <input type="text" id="address-app" name="address-app" required>
                     </li>
                 </ul>
                 <ul>
                     <li>
                         <label for="city">City:</label>
-                        <input type="text" id="city" name="city" value="Oshkosh" required>
+                        <input type="text" id="city" name="city" required>
                     </li>
                     <li>
                         <label for="state">State:</label>
-                        <input type="text" id="state" name="state" value="WI" required>
+                        <input type="text" id="state" name="state" required>
                     </li>
                     <li>
                         <label for="phone-number-app">Phone Number:</label>
-                        <input type="text" id="phone-number-app" name="phone-number-app" value="9205334469" required>
+                        <input type="text" id="phone-number-app" name="phone-number-app" required>
                     </li>
                     <li>
                         <label for="email-app">Email:</label>
-                        <input type="email" id="email-app" name="email-app" value="example@gmail.com" required>
+                        <input type="email" id="email-app" name="email-app" required>
                     </li>
                 </ul>
             </fieldset>
@@ -83,7 +83,7 @@ include("../php/sessions.php");
             <fieldset>
                 <legend class="app-headers">Availibility</legend>
                 <label class="radio-labels" for="full-time">Full Time</label>
-                <input type="radio" id="full-time" name="type-of-employment" checked required>
+                <input type="radio" id="full-time" name="type-of-employment" required>
                 <label class="radio-labels" for="part-time">Part Time</label>
                 <input type="radio" id="part-time" name="type-of-employment">
             </fieldset>
@@ -91,7 +91,7 @@ include("../php/sessions.php");
             <fieldset>
                 <legend class="app-headers">Do you have any pizza/restaurant experience?</legend>
                 <label class="radio-labels" for="yes-exp">Yes</label>
-                <input type="radio" id="yes-exp" name="experience" checked required>
+                <input type="radio" id="yes-exp" name="experience"required>
                 <label class="radio-labels" for="no-exp">No</label>
                 <input type="radio" id="no-exp" name="experience">
             </fieldset>
@@ -99,7 +99,7 @@ include("../php/sessions.php");
             <fieldset>
                 <legend class="app-headers">Are you able to work from 10PM to 3AM?</legend>
                 <label class="radio-labels" for="yes-weekend">Yes</label>
-                <input type="radio" id="yes-weekend" name="weekend" checked required>
+                <input type="radio" id="yes-weekend" name="weekend" required>
                 <label class="radio-labels" for="no-weekend">No</label>
                 <input type="radio" id="no-weekend" name="weekend">
             </fieldset>
@@ -107,15 +107,15 @@ include("../php/sessions.php");
             <fieldset>
                 <legend class="app-headers">Hours and rate</legend>
                 <label for="desired-hours">Hours availiable:</label>
-                <input type="text" id="desired-hours" name="desired-hours" value="25" required>
+                <input type="text" id="desired-hours" name="desired-hours" required>
                 <label for="desired-rate">Desired rate:</label>
-                <input type="text" id="desired-rate" name="desired-rate" value="10" required>
+                <input type="text" id="desired-rate" name="desired-rate" required>
             </fieldset>
             <!--------------------Legal Questions--------------------------------------->
             <fieldset>
                 <legend class="app-headers">Are you legally eligible for employment in the United States?</legend>
                 <label class="radio-labels" for="yes-legally">Yes</label>
-                <input type="radio" id="yes-legally" name="legality"checked required>
+                <input type="radio" id="yes-legally" name="legality" required>
                 <label class="radio-labels" for="no-legally">No</label>
                 <input type="radio" id="no-legally" name="legality">
             </fieldset>
@@ -124,7 +124,7 @@ include("../php/sessions.php");
                 <label class="radio-labels" for="yes-felony">Yes</label>
                 <input type="radio" id="yes-felony" name="felony" required>
                 <label class="radio-labels" for="no-felony">No</label>
-                <input type="radio" id="no-felony" name="felony"checked>
+                <input type="radio" id="no-felony" name="felony">
                 <label class="radio-labels" for="ifyes-felony">If yes, please explain:</label>
                 <input type="text" id="ifyes-felony" name="ifyes-felony">
             </fieldset>
@@ -134,7 +134,7 @@ include("../php/sessions.php");
                 <ul>
                     <li>
                         <label for="most-recent-employer">Most recent employer:</label>
-                        <input type="text" id="most-recent-employer" name="most-recent-employer" value="bobs burgers">
+                        <input type="text" id="most-recent-employer" name="most-recent-employer">
                     </li>
                     <li>
                         <label for="start-of-employment">Start of employment:</label>
@@ -146,25 +146,25 @@ include("../php/sessions.php");
                     </li>
                     <li>
                         <label for="supervisor">Supervisor name:</label>
-                        <input type="text" id="supervisor" name="supervisor" value="jim">
+                        <input type="text" id="supervisor" name="supervisor">
                     </li>
                 </ul>
                 <ul>
                     <li>
                         <label for="supervisor-phone">Supervisor number:</label>
-                        <input type="text" id="supervisor-phone" name="supervisor-phone" value="9205556666">
+                        <input type="text" id="supervisor-phone" name="supervisor-phone">
                     </li>
                     <li>
                         <label for="responsiblities">Job Title:</label>
-                        <input type="text" id="responsiblities" name="responsiblities" value="cook">
+                        <input type="text" id="responsiblities" name="responsiblities">
                     </li>
                     <li>
                         <label for="rate">Hourly rate:</label>
-                        <input type="text" id="rate" name="rate" value=12>
+                        <input type="text" id="rate" name="rate">
                     </li>
                     <li>
                         <label for="reason">Reason for leaving:</label>
-                        <input type="text" id="reason" name="reason" value="bad pay">
+                        <input type="text" id="reason" name="reason">
                     </li>
                 </ul>
             </fieldset>

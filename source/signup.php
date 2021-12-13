@@ -43,27 +43,27 @@ include("../php/sessions.php");
                 <ul>
                     <li>
                         <label for="first-name-signup">First Name:</label>
-                        <input type="text" name="first-name-signup" id="first-name-signup" value="jim" required>
+                        <input type="text" name="first-name-signup" id="first-name-signup" required>
                     </li>
                     <li>
                         <label for="last-name-signup">Last Name:</label>
-                        <input type="text" name="last-name-signup" id="last-name-signup" value="bob" required>
+                        <input type="text" name="last-name-signup" id="last-name-signup" required>
                     </li>
                     <li>
                         <label for="username-signup">Username:</label>
-                        <input type="text" name="username-signup" id="username-signup" value="jbob12" required>
+                        <input type="text" name="username-signup" id="username-signup" required>
                     </li>
                     <li>
                         <label for="email-signup">Email:</label>
-                        <input type="email" name="email-signup" id="email-signup" value="example1@gmail.com" required>
+                        <input type="email" name="email-signup" id="email-signup" required>
                     </li>
                     <li>
                         <label for="phone-signup">Phone number:</label>
-                        <input type="phone-signup" name="phone-signup" id="phone-signup" value="9205334469" required>
+                        <input type="phone-signup" name="phone-signup" id="phone-signup" required>
                     </li>
                     <li>
                         <label for="password-signup">Password:</label>
-                        <input type="password" name="password-signup" id="password-signup" value="12345678Bb" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
+                        <input type="password" name="password-signup" id="password-signup" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
                     </li> 
                     <div id="password-message">
                         <h1>Password requirements:</h1>
@@ -74,7 +74,7 @@ include("../php/sessions.php");
                     </div>
                     <li>
                         <label for="password-signup2">Re-enter Password:</label>
-                        <input type="password" name="password-signup2" id="password-signup2" value="12345678Bb" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
+                        <input type="password" name="password-signup2" id="password-signup2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" required>
                     </li>
                     <li>
                         <label for="dob-signup">Birthday:</label>

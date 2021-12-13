@@ -89,7 +89,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ul>
                 <div id="login-buttons">
                     <input class="form-buttons" type="submit" value="Sign-in"/>
-                    <a href="./forgotpassword.php"><button type="button">Forgot password?</button></a></li>
                 </div>
             </fieldset>
             </form>
