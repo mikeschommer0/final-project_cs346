@@ -77,7 +77,7 @@ include("../php/sessions.php");
                     student as a prototype for Polito's Pizza. Nothing on the site should be 
                     construed in any way as being officially
                     connected with or representative of Polito's Pizza.
-                </p> 
+                </p>
             </footer>
         </main>
     </div>
